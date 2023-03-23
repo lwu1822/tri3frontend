@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .navbar-container-background {
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            background-color: #383838;
+            opacity: 0.7;
+            z-index: 3;
+        }
+
+        .navbar-container-content {
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            z-index: 4;
+        }
+
+        .navbar-link {
+            color: white;
+            font-family: "Quicksand", sans-serif;
+            font-size: 20px;
+            margin-left: 50px;
+            cursor: pointer;
+        }
+
+        #menu {
+            height: 30px;
+            width: 40px;
+            margin-top: -7px;
+            position: absolute;
+            right: 40px;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .menu-line {
+            height: 3px;
+            width: 40px;
+            background-color: white;
+            margin-top: 7px;
+            border-radius: 10px;
+        }
+
+        #right-sidebar {
+            height: 100%;
+            width: 0px;
+            background-color: black;
+            color: white;
+            position: fixed;
+            z-index: 4;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+            padding-top: 15px;
+        }
+
+        #right-sidebar-close-button {
+            position: relative;
+            font-size: 25px;
+            left: 170px;
+            margin-top: -5px;
+            cursor: pointer;
+        }
+
+        .right-sidebar-link-container {
+            padding: 10px;
+            background-color: royalblue;
+            border: none;
+            margin-top: 15px;
+        }
+
+        .right-sidebar-link {
+            font-size: 21px;
+            color: white;
+            display: block;
+            text-align: center;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+    </style>
+    <body>
+        <div class = "navbar-container-background"></div>
+        <div class = "navbar-container-content">
+            <a class = "navbar-link">Home</a>
+            <a class = "navbar-link">About</a>
+            <a class = "navbar-link">Language Selection</a>
+            <div id = "menu">
+                <div class = "menu-line"></div>
+                <div class = "menu-line"></div>
+                <div class = "menu-line"></div>
+            </div>
+            <div id = "right-sidebar">
+                <p id = "right-sidebar-close-button">x</p>
+                <div class = "right-sidebar-link-container" style = "margin-top: -15px;">
+                    <a class = "right-sidebar-link" href = "/DADY-Academy/security/login.html">Login</a>
+                </div>
+                <div class = "right-sidebar-link-container">
+                    <a class = "right-sidebar-link" href = "/DADY-Academy/security/signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <script src = "/assets/js/navbar.js"></script>
+    </body>
+</html>

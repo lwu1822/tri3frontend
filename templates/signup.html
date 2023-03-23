@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #160E2C;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: white;
+            transition-duration: 0.4s;
+        }
+
+        #signup-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+        
+        .signup-background-1-image, .signup-background-1-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .signup-background-1-image {
+            height: 800px;
+            width: 100%;
+            background: url("https://images.pexels.com/photos/270366/pexels-photo-270366.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 1;            
+        }
+
+        .signup-background-1-overlay {
+            height: 800px;
+            width: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+        .signup-background-1-content {
+            height: 800px;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .signup-container {
+            height: 50vh;
+            width: 30%;
+            padding: 10px;
+            background-color: whitesmoke;
+            margin: 0;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 15px 15px 0 rgba(255,255,255,0.7);
+        }
+
+        .signup-label {
+            color: silver;
+            font-weight: lighter;
+            position: relative;
+            font-size: 15px;
+            top: 20px;
+        }
+
+        .signup-input {
+            height: 30px;
+            width: 200px;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+            color: black;
+            caret-color: black;
+        }
+
+        .signup-input:focus {
+            outline: none;
+        }
+
+        .question {
+            height: 50px;
+            width: 200px;
+            padding: 7px;
+            background-color: transparent;
+            display: block;
+            margin: auto;
+            margin-top: -20px;
+        }
+
+        #navigation {
+            height: 30px; 
+            width: 300px; 
+            display: grid; 
+            grid-template-columns: 70px 160px 70px; 
+            margin: auto; 
+            margin-top: 20px;
+        }
+
+        .next-button {
+            height: 20px;
+            width: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .back-button {
+            height: 20px;
+            width: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: default;
+        }
+
+        .signup-submit {
+            height: 30px;
+            width: 200px;
+            background-image: linear-gradient(to right,violet, dodgerblue, mediumseagreen);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            display: none;
+            opacity: 0;
+            position: relative;
+            right: 70px;
+            top: -5px;
+            cursor: pointer;
+        }
+
+    </style>
+    <body>
+        <div id = "signup-background-1">
+            <div class = "signup-background-1-image"></div>
+            <div class = "signup-background-1-overlay"></div>
+            <div class = "signup-background-1-content">
+                <div id = "navbar-content"></div>
+                <div class = "signup-container">
+                    <h1 style = "text-align: center; color: black">Sign Up</h1>
+                    <form>
+                        <div id = "question-1" class = "question">
+                            <label class = "signup-label" id = "name-label" for = "name" status = "off">Enter full name:</label>
+                            <input class = "signup-input" type = "text" name = "name" id = "name">
+                        </div>
+                        <div id = "question-2" class = "question">
+                            <label class = "signup-label" id = "email-label" for = "email" status = "off">Enter email address:</label>
+                            <input class = "signup-input" type = "email" name = "email" id = "email">
+                        </div>
+                        <div id = "question-3" class = "question">
+                            <label class = "signup-label" id = "password-label" for = "password" status = "off">Create a password:</label>
+                            <input class = "signup-input" type = "password" name = "password" id = "password">
+                            <label class = "signup-label" id = "cpassword-label" for = "cpassword" status = "off">Confirm password:</label>
+                            <input class = "signup-input" type = "password" name = "cpassword" id = "cpassword">
+                        </div>
+                    </form>
+                    <div id = "navigation">
+                        <div class = "back-button" id = "back-button">
+                            <p style = "color: black; font-size: 27px;">&#8676;</p>
+                            <p style = "color: black; margin-left: 10px; font-size: 17px;">Back</p>
+                        </div>
+                        <div></div>
+                        <div class = "next-button" id = "next-button">
+                            <p style = "color: black; font-size: 17px;">Next</p>
+                            <p style = "color: black; margin-left: 10px; font-size: 27px;">&#8677;</p>
+                        </div>
+                        <input type = "submit" class = "signup-submit" id = "signup-submit" onclick="signup()">
+                    </div>
+                    <p style = "color: black; text-align: center; margin-top: 10px;">Already have an account?</p>
+                    <a style = "color: blue; display: block; text-align: center; margin-top: -10px;" href = "/security/login.html">Login</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+
+            var backButton = document.getElementById("back-button");
+            backButton.addEventListener("click", previousPage);
+            backButton.style.opacity = "0";
+            var nextButton = document.getElementById("next-button");
+            nextButton.addEventListener("click", nextPage);
+
+            var question1 = document.getElementById("question-1");
+            var question2 = document.getElementById("question-2");
+            var question3 = document.getElementById("question-3");
+            question2.style.display = "none";
+            question2.style.opacity = "0";
+            question3.style.display = "none";
+            question3.style.opacity = "0";
+            var page = 1;
+
+            function nextPage() {
+                switch(page) {
+                    case 1:
+                        $("#back-button").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#back-button").css("cursor", "pointer");
+                        $("#question-1").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question1.style.display = "none";
+                        question2.style.display = "block";
+                        $("#question-2").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 2:
+                        $("#next-button").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#next-button").css("cursor", "default");
+                        $("#next-button").css("display", "none");
+                        $("#navigation").css("marginTop", "70px");
+                        $("#signup-submit").css("display", "block");
+                        $("#signup-submit").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#question-2").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question2.style.display = "none";
+                        question3.style.display = "block";
+                        $("#question-3").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                }
+                page++;
+            }
+
+            function previousPage() {
+                switch(page) {
+                    case 2:
+                        $("#back-button").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#back-button").css("cursor", "default");
+                        $("#question-2").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question2.style.display = "none";
+                        question1.style.display = "block";
+                        $("#question-1").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                    case 3:
+                        $("#signup-submit").animate({opacity: "0"}, {duration: 2000, queue: true});
+                        $("#signup-submit").css("display", "none");
+                        $("#navigation").css("marginTop", "20px");
+                        $("#next-button").css("display", "flex");
+                        $("#next-button").animate({opacity: "1"}, {duration: 2000, queue: true});
+                        $("#next-button").css("cursor", "pointer");
+                        $("#question-3").animate({opacity: "0"}, {duration: 3000, queue: true});
+                        question3.style.display = "none";
+                        question2.style.display = "block";
+                        $("#question-2").animate({opacity: "1"}, {duration: 3000, queue: true});
+                        break;
+                }
+                page--;
+            }
+
+            $("body").on("click", activation);
+        
+            function activation(e) {
+                if ($(e.target).attr("class") == "signup-input") {
+                    var inputName = $(e.target).attr("name");
+                    for (var i = 0; i < 4; i++) {
+                        if ($(".signup-label").eq(i).attr("for") == inputName) {
+                            for (var x = 0; x < 4; x++) {
+                                if (x == i) {
+                                    continue;
+                                }
+                                if ($(".signup-label").eq(x).attr("status") == "on") {
+                                    $(".signup-label").eq(x).attr("status", "off");
+                                    $(".signup-label").eq(x).animate({top: "20px"}, {duration: 200, queue: false});
+                                    $(".signup-label").eq(x).animate({fontSize: "15px"}, {duration: 200, queue: false});
+                                    $(".signup-label").eq(x).animate({color: "silver"}, {duration: 200, queue: false});
+                                }
+                            }
+                            $(".signup-label").eq(i).animate({top: "0px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).animate({fontSize: "17px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).animate({color: "black"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(i).attr("status", "on");
+                        }
+                    }
+                } else {
+                    for (var j = 0; j < 4; j++) {
+                        if ($(".signup-label").eq(j).attr("status") == "on") {
+                            $(".signup-label").eq(j).attr("status", "off");
+                            $(".signup-label").eq(j).animate({top: "20px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(j).animate({fontSize: "15px"}, {duration: 200, queue: false});
+                            $(".signup-label").eq(j).animate({color: "silver"}, {duration: 200, queue: false});
+                        }
+                    }
+                }
+            }
+
+            
+            var email = "";
+            var password = "";
+
+            function signup() {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value;
+                email = document.getElementById("email").value;
+                
+                password = document.getElementById("password").value;
+                var cpassword = document.getElementById("cpassword").value;
+                if (password != cpassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+                const stats = document.getElementById("statsBool").checked;
+                const bio = document.getElementById("bioBool").checked;
+                const chem = document.getElementById("chemBool").checked;
+                const phys = document.getElementById("physBool").checked;
+
+                console.log("" + stats + bio + chem + phys);
+
+                const url = "https://frq.dtsivkovski.tk/register";
+            
+            var options = {
+                method: 'POST', 
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'include', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "email" : email,
+                    "password" : password,
+                    "name" : name,
+                    "stats": stats,
+                    "chem": chem,
+                    "phys": phys,
+                    "bio": bio
+                })
+            };
+
+            console.log(options);
+
+            // fetch(url, options)
+            //   .then(response => console.log(response.text()))
+            //   .then(result => console.log(result))
+            //   .catch(error => console.log('error', error));
+
+
+            // Fetch JWT
+            fetch(url, options)
+            .then(response => {
+                // trap error response from Web API
+                //   if (!response.ok) {
+                //       const errorMsg = 'Login error: ' + response.status;
+                //       console.log(errorMsg);
+                //       return; 
+                //   }
+                // Success!!!
+                
+                sessionStorage.setItem("username", email);
+                login();
+                //   window.location.reload();
+                // window.location.href = "{{site.baseurl}}/home";
+
+
+            })
+
+            }
+
+            function login() {
+
+                email = document.getElementById("email").value;
+                password = document.getElementById("password").value;
+
+                const url = "https://frq.dtsivkovski.tk/authenticate";
+                
+                var options = {
+                    method: 'POST', 
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'include', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "email" : email,
+                        "password" : password
+                    })
+                };
+
+                console.log(options);
+
+                // fetch(url, options)
+                //   .then(response => console.log(response.text()))
+                //   .then(result => console.log(result))
+                //   .catch(error => console.log('error', error));
+
+
+                // Fetch JWT
+                fetch(url, options)
+                .then(response => {
+                    // trap error response from Web API
+                    if (!response.ok) {
+                        const errorMsg = 'Login error: ' + response.status;
+                        console.log(errorMsg);
+                        return; 
+                    }
+                    // Success!!!
+                    
+                    sessionStorage.setItem("username", email);
+                    window.location.href = "/DADY-Academy/templates/home.html";
+                    // window.location.href = "{{site.baseurl}}/home";
+
+
+                })
+
+            }
+
+        </script>
+    </body>
+</html>

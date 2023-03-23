@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffd89b, #19547b);
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+        }
+
+        .quiz-container {
+            height: 450px;
+            width: 650px;
+            background-color: black;
+            border-radius: 50px;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+            padding: 15px;
+        }
+
+        .question-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question {
+            display: block;
+            text-align: center;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: lighter;
+            font-size: 25px;
+        }
+
+        .selection-1, .selection-2, .selection-3, .selection-4 {
+            height: 50px;
+            width: 250px;
+            border-radius: 50px;
+            background-color: slategray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .selection-1, .selection-3 {
+            margin-right: 10px;
+        }
+
+        .selection-2, .selection-4 {
+            margin-left: 10px;
+        }
+
+        #prev, #next {
+            height: 30px;
+            width: 125px;
+            background-color: royalblue;
+            border: none;
+            border-radius: 50px;
+            color: white;
+        }
+
+        #prev {
+            position: relative;
+            left: 0;
+            margin-right: auto;
+        }
+
+        #next {
+            position: relative;
+            right: 0;
+            margin-left: auto;
+        }
+
+    </style>
+    <body>
+        <div id = "navbar-content"></div>
+        <div style = "height: 900px; width: 100%; display: flex; justify-content: center; align-items: center;">
+            <div class = "quiz-container">
+                <div class = "question-container" id = "quiz-question-1">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-2">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-3">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-4">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-5">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-6">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-7">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-8">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-9">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-10">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+                <div class = "question-container" id = "quiz-question-11">
+                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <br><br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-1"><p>Beginner</p></div>
+                        <div class = "selection-2"><p>Intermediate</p></div>
+                    </div>
+                    <br>
+                    <div style = "display: flex; flex-direction: row;">
+                        <div class = "selection-3"><p>Advanced</p></div>
+                        <div class = "selection-4"><p>Unsure</p></div>
+                    </div>
+                    <br><br>
+                    <div style = "width: 70%; display: flex; flex-direction: row">
+                        <button id = "prev">Back</button>
+                        <button id = "next">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html ");
+            })
+
+            var questionContainers = document.getElementsByClassName("question-container");
+            for (var i = 1; i < questionContainers.length; i++) {
+                questionContainers[i].style.display = "none";
+                questionContainers[i].style.opacity = 1;
+            }
+
+            var prevButton = document.getElementById("prev");
+            var nextButton = document.getElementById("next");
+            prevButton.addEventListener("click", prevQuestion);
+            nextButton.addEventListener("click", nextQuestion);
+            var page = 0;
+            function prevQuestion() {
+                if (page > 0) {
+                    $("#quiz-question-" + (page + 1)).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
+                        $("#quiz-question-" + (page + 1)).css("display", "none");
+                        page--;
+                        $("#quiz-question-" + (page + 1)).css("display", "block");
+                        $("#quiz-question-" + (page + 1)).animate({opacity: 1}, {duration: 1000, queue: true});
+                    }});
+                }
+            }
+            function nextQuestion() {
+                if (page < 10) {
+                    $("#quiz-question-" + (page + 1)).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
+                        $("#quiz-question-" + (page + 1)).css("display", "none");
+                        page++;
+                        $("#quiz-question-" + (page + 1)).css("display", "block");
+                        $("#quiz-question-" + (page + 1)).animate({opacity: 1}, {duration: 1000, queue: true});
+                    }});
+                }
+            }
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 100px;
+            color: white;
+        }
+
+        h2 {
+            font-family: 'Tilt Warp', sans-serif;
+            font-size: 30px;
+            color: white;
+        }
+
+        h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            font-weight: lighter;
+            color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #home-background-1 {
+            height: 2000px;
+            width: 100%;
+            background-color: #282828;
+        }
+
+        .get-started-button {
+            height: 35px;
+            width: 250px;
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            transition-duration: 1.5s;
+        }
+
+        .get-started-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .home-sub-background-1 {
+            height: 700px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-title {
+            position: relative;
+            z-index: 2;
+            margin-top: 0px;
+        }
+
+        .home-sub-background-2 {
+            height: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow-container {
+            height: 80%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .slideshow-image {
+            height: 100%;
+            width: 600px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-left: 50px;
+            background-color: white;
+        }
+
+        .slideshow-navigation {
+            height: 60px;
+            width: 100%;
+            margin-left: 225px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: absolute;
+        }
+
+        #prev, #next {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+
+        #prev {
+            position: absolute;
+            left: 20px;
+        }
+
+        #next {
+            position: absolute;
+            right: 20px;
+        }
+
+
+    </style>
+    <body>
+        <div id = "home-background-1">
+            <div id = "navbar-content"></div>
+            <div class = "home-sub-background-1">
+                <h1 style = "margin: 0;" class = "home-title">Mortlingo</h1>
+                <div style = "width: 700px; display: flex; flex-direction: row; position: relative; left: 150px;">
+                    <h1 class = "home-title">Learn.</h1>
+                    <h1 class = "home-title">Code.</h1>
+                </div>
+                <div style = "width: 700px; display: flex; flex-direction: row; position: relative; left: 150px;">
+                    <h1 class = "home-title">Apply.</h1>
+                    <h1 class = "home-title">Repeat.</h1>
+                </div>
+                <img src = "/assets/images/computer1.png" style = "position: absolute; left: 5%; z-index: 1;" width = "700px;">
+            </div>
+            <div class = "home-sub-background-2">
+                <h2>How Mortlingo Works</h2>
+                <div class = "slideshow-container">
+                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
+                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
+                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
+                    <div class = "slideshow-navigation">
+                        <div id = "prev"></div>
+                        <div id = "next"></div>
+                    </div>
+                </div>
+            </div>
+            <!--<div id = "home-background-2">
+                <div class = "home-background-2-image"></div>
+                <div class = "home-background-2-overlay"></div>
+                <div class = "home-background-2-content">
+                    <div id = "navbar-content" style = "margin: 0;"></div>
+                    <div style = "height: 930px; width: 100%; position: relative; top: 70px; display: flex; flex-direction: row;">
+                        <div style = "height: 100%; width: 90%; display: flex; justify-content: center; align-items: center;">
+                            <h1 style = "font-family: 'Quicksand', sans-serif; position: relative; top: -300px; left: 100px;">Code</h1>
+                            <h1 style = "font-family: 'Quicksand', sans-serif; font-size: 120px; position: relative; top: -300px; left: 600px;">Code</h1>
+                            <h1 style = "font-family: 'Quicksand', sans-serif; position: relative; top: -300px; left: -50px;">Code</h1>
+                            <h1 style = "font-family: 'Quicksand', sans-serif; font-size: 120px; position: relative; top: 0px; left: -50px;">Literally.</h1>
+                        </div>
+                    </div>
+                    <div style = "height: 930px; width: 100%;display: flex; flex-direction: row; position: relative; top: 70px;">
+                        <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            <h1 style = "font-family: 'Quicksand', sans-serif;">Test</h1>
+                        </div>
+                        <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+                        </div>
+                    </div>
+                    <button class = "get-started-button">Get Started</button>
+                </div>
+            </div>
+            <div class = "home-background-3-background"></div>
+            <div class = "home-background-3-content">
+                <div style = "height: 450px; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h2>Accelerated Coding Track</h2>
+                    <div style = "width: 550px; text-align: center;">
+                        <h3>Here at Mortlingo, we strive to help our clients learn the ins and outs of basic computer science data structures, using an effective curriculum that implements both in-depth lessons and hands-on learning</h3>
+                    </div>
+                </div>
+                <div style = "height: 450px; width: 50%; display: flex; justify-content: center; align-items: center;">
+                    <img src = "/assets/images/mort-mascot.png" width = "400px">
+                </div>
+            </div>-->
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            })
+        </script>
+    </body>
+</html>
