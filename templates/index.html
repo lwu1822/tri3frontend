@@ -87,7 +87,7 @@
             color: mediumaquamarine;
         }
 
-        #home-background-2 {
+        .home-background-2 {
             height: 700px;
             width: 100%;
             background-color: whitesmoke;
@@ -96,8 +96,8 @@
             align-items: center;
         }
         
-        #home-background-3 {
-            height: 600px;
+        .home-background-3 {
+            height: 650px;
             width: 100%;
             background-color: whitesmoke;
         }
@@ -113,6 +113,84 @@
             margin-right: auto;
             border-radius: 50px;
             margin-top: 120px;
+        }
+
+        .home-video-1 {
+            height: 600px;
+            width: 800px;
+            display: block;
+            margin: auto;
+            border-radius: 50px;
+            background-color: black;
+        }
+
+        #home-background-4 {
+            height: 400px;
+            width: 100%;
+            background-color: crimson;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        .get-started-input {
+            height: 60px;
+            width: 700px;
+            background-color: white;
+            border-radius: 50px;
+            padding-left: 10px;
+            font-size: 30px;
+            color: black;
+            position: relative;
+            z-index: 2;
+            border: none;
+        }
+
+        .get-started-input::placeholder {
+            font-size: 20px;
+            position: relative;
+            top: -2px;
+            color: darkgray;
+        }
+        
+        .get-started-button {
+            height: 55px;
+            width: 300px;
+            background-color: #3aafa9;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            display: block;
+            position: relative;
+            top: 50px;
+            z-index: 2;
+            margin: auto;
+            font-size: 20px;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .get-started-button span {
+            display: inline-block;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .get-started-button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: 0px;
+            transition: 0.4s;
+        }
+
+        .get-started-button:hover span {
+            padding-right: 20px;
+        }
+
+        .get-started-button:hover span:after {
+            opacity: 1;
+            right: 0;
         }
 
     </style>
@@ -168,7 +246,7 @@
                         <button class = "carousel-button">Take Me There!</button>
                     </div>
 
-                    <!--Repeat-->
+                    <!--Repeat but don't delete-->
                     <div class = "carousel-item">
                         <h2>Flash Cards</h2>
                         <h3 style = "margin-top: -5px">Practice with interactive flash cards to help you memorize core data structures</h3>
@@ -212,7 +290,7 @@
                         <button class = "carousel-button">Take Me There!</button>
                     </div>
 
-                    <!--Repeat-->
+                    <!--Repeat but don't delete-->
                     <div class = "carousel-item">
                         <h2>Flash Cards</h2>
                         <h3 style = "margin-top: -5px">Practice with interactive flash cards to help you memorize core data structures</h3>
@@ -258,7 +336,7 @@
                 </div>
             </div>
         </div>
-        <div id = "home-background-2">
+        <div class = "home-background-2">
             <div style = "height: 80%; width: 70%; display: flex; flex-direction: row;">
                 <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 40px;">
                     <h2>
@@ -275,7 +353,37 @@
                 </div>
             </div>
         </div>
-        <div id = "home-background-3"></div>
+        <div class = "home-background-3">
+            <video autoplay muted loop class = "home-video-1">
+                <source src="" type = "video/mp4">
+            </video>
+        </div>
+        <div class = "home-background-2">
+            <div style = "height: 80%; width: 70%; display: flex; flex-direction: row;">
+                <div style = "height: 100%; width: 45%; display: flex; flex-direction: row; justify-content: center; align-items: center; font-size: 150px; position: relative; left: 0px;">
+                    <img src = "/assets/css/images/assessment.png" width = "500px;" height = "425px;">
+                </div>
+                <div class = "separator"></div>
+                <div style = "height: 100%; width: 55%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 40px; position: relative; left: 100px;">
+                    <h2>
+                        <span style = "white-space: nowrap;">Assess your</span>
+                        <span style = "white-space: nowrap;">understanding with </span>
+                        <span style = "white-space: nowrap; font-family: 'Fasthand', sans-serif; color: royalblue;">comprehension</span><span> practice</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class = "home-background-3" style = "height: 1000px">
+            <video autoplay muted loop class = "home-video-1">
+                <source src="" type = "video/mp4">
+            </video>
+        </div>
+        <div id = "home-background-4">
+            <div style = "height: 500px; width: 120%; background-color: crimson; border-radius: 50%; position: absolute; left: -10%; margin-top: -200px; z-index: 1;"></div>
+            <h2 style = "position: relative; z-index: 2; color: white;">What are you waiting for?</h2>
+            <input class = "get-started-input" type = "text" placeholder = "Type in your desired username then press the cool-looking button below">
+            <button class = "get-started-button"><span>Get Started</span></button>
+        </div>
         <script>
             $(function() {
                 $("#navbar-content").load("/layouts/navbar.html");
@@ -285,7 +393,7 @@
             var carouselContainer = document.getElementById("carousel-container");
 
             function carouselAnimation() {
-                $(".carousel-item").eq(0).animate({marginLeft: "6300px"}, {duration: 30000, easing: "linear", complete: function() {
+                $(".carousel-item").eq(0).animate({marginLeft: "6300px"}, {duration: 40000, easing: "linear", complete: function() {
                     $(".carousel-item").eq(0).css("marginLeft", "0px");
                     carouselAnimation();
                 }});
