@@ -13,22 +13,14 @@
             font-family: 'Nunito', sans-serif;
         }
 
-        .navbar-container-background {
-            position: fixed;
+        .navbar-container {
+            height: 120px;
             width: 100%;
-            height: 70px;
-            background-color: #383838;
-            opacity: 0.7;
-            z-index: 3;
-        }
-
-        .navbar-container-content {
-            position: fixed;
-            width: 100%;
-            height: 70px;
-            display: flex;
-            align-items: center;
+            background-color: transparent;
             z-index: 4;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
 
         .navbar-link {
@@ -98,8 +90,8 @@
 
     </style>
     <body>
-        <div class = "navbar-container-background"></div>
-        <div class = "navbar-container-content">
+        <div class = "navbar-container">
+            <img src = "/assets/css/images/Codelingo-logos_white.png" width = "150px" style = "position: relative; top: 10px; left: 30px;">
             <a class = "navbar-link">Home</a>
             <a class = "navbar-link">About</a>
             <a class = "navbar-link">Language Selection</a>

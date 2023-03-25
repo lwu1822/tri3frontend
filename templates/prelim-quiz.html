@@ -304,33 +304,34 @@
             var questionContainers = document.getElementsByClassName("question-container");
             for (var i = 1; i < questionContainers.length; i++) {
                 questionContainers[i].style.display = "none";
-                questionContainers[i].style.opacity = 1;
+                questionContainers[i].style.opacity = 0;
             }
 
             var prevButton = document.getElementById("prev");
             var nextButton = document.getElementById("next");
             prevButton.addEventListener("click", prevQuestion);
             nextButton.addEventListener("click", nextQuestion);
-            var page = 0;
+            var page = 1;
+
             function prevQuestion() {
-                if (page > 0) {
-                    $("#quiz-question-" + (page + 1)).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
-                        $("#quiz-question-" + (page + 1)).css("display", "none");
-                        page--;
-                        $("#quiz-question-" + (page + 1)).css("display", "block");
-                        $("#quiz-question-" + (page + 1)).animate({opacity: 1}, {duration: 1000, queue: true});
+                if (page > 1) {
+                    $("#quiz-question-" + page).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
+                        $("#quiz-question-" + page).css("display", "none");
                     }});
+                    page--;
+                    $("#quiz-question-" + page).css("display", "flex");
+                    $("#quiz-question-" + page).animate({opacity: 1}, {duration: 1000, queue: true});
                 }
             }
             function nextQuestion() {
-                if (page < 10) {
-                    $("#quiz-question-" + (page + 1)).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
-                        $("#quiz-question-" + (page + 1)).css("display", "none");
-                        page++;
-                        $("#quiz-question-" + (page + 1)).css("display", "block");
+                if (page < 11) {
+                    $("#quiz-question-" + page).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
+                        $("#quiz-question-" + page).css("display", "none");
+                        $("#quiz-question-" + (page + 1)).css("display", "flex");
                         $("#quiz-question-" + (page + 1)).animate({opacity: 1}, {duration: 1000, queue: true});
                     }});
                 }
+                page++;
             }
             
         </script>

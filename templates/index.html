@@ -3,35 +3,33 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
     <style>
         html, body {
             padding: 0;
             margin: 0;
-            background-color: black;
+            background-color: whitesmoke;
             font-family: 'Quicksand', sans-serif;
             overflow-x: hidden;
         }
 
         h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 100px;
             color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 120px;
+            font-weight: lighter;
         }
 
         h2 {
-            font-family: 'Tilt Warp', sans-serif;
-            font-size: 30px;
-            color: white;
+            font-family: 'Roboto', sans-serif;
         }
 
         h3 {
             font-family: 'Quicksand', sans-serif;
-            font-size: 20px;
+            color: black;
             font-weight: lighter;
-            color: white;
         }
 
         * {
@@ -39,169 +37,262 @@
         }
 
         #home-background-1 {
-            height: 2000px;
+            height: 1150px;
             width: 100%;
-            background-color: #282828;
+            background-color: #3aafa9;
         }
 
-        .get-started-button {
-            height: 35px;
-            width: 250px;
-            border-radius: 20px;
+        .cutout-text {
             background-color: black;
+            padding: 20px;
+            padding-left: 35px;
+            padding-right: 35px;
             color: white;
-            border: none;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 20px;
-            cursor: pointer;
-            display: block;
-            margin: auto;
-            transition-duration: 1.5s;
+            position: relative;
+            z-index: 2;
         }
 
-        .get-started-button:hover {
+        .carousel-container {
+            height: 1000px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .carousel-item {
+            height: 100%;
+            width: 400px;
             background-color: white;
+            margin-left: 50px;
+            display: flex;
+            padding-left: 40px;
+            padding-right: 40px;
+            flex-direction: column;
+            justify-content: center;
             color: black;
         }
 
-        .home-sub-background-1 {
+        .carousel-button {
+            height: 30px;
+            width: 225px;
+            color: white;
+            border: 2px solid mediumaquamarine;
+            background-color: mediumaquamarine;
+            display: block;
+            margin: auto;
+            transition-duration: 0.7s;
+        }
+        
+        .carousel-button:hover {
+            background-color: white;
+            color: mediumaquamarine;
+        }
+
+        #home-background-2 {
             height: 700px;
             width: 100%;
+            background-color: whitesmoke;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-
-        .home-title {
-            position: relative;
-            z-index: 2;
-            margin-top: 0px;
-        }
-
-        .home-sub-background-2 {
-            height: 500px;
+        
+        #home-background-3 {
+            height: 600px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: whitesmoke;
         }
 
-        .slideshow-container {
-            height: 80%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .slideshow-image {
-            height: 100%;
-            width: 600px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-left: 50px;
-            background-color: white;
-        }
-
-        .slideshow-navigation {
-            height: 60px;
-            width: 100%;
-            margin-left: 225px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        .separator {
+            height: 45%;
+            width: 5px;
+            background-color: slategray;
             position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+            margin-top: 120px;
         }
-
-        #prev, #next {
-            height: 55px;
-            width: 55px;
-            border-radius: 50%;
-            background-color: gray;
-        }
-
-        #prev {
-            position: absolute;
-            left: 20px;
-        }
-
-        #next {
-            position: absolute;
-            right: 20px;
-        }
-
 
     </style>
     <body>
         <div id = "home-background-1">
             <div id = "navbar-content"></div>
-            <div class = "home-sub-background-1">
-                <h1 style = "margin: 0;" class = "home-title">Mortlingo</h1>
-                <div style = "width: 700px; display: flex; flex-direction: row; position: relative; left: 150px;">
-                    <h1 class = "home-title">Learn.</h1>
-                    <h1 class = "home-title">Code.</h1>
+            <div style = "height: 930px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h1>Learn Data</h1>
+                <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center; margin-top: -150px;">
+                    <h1>with</h1><h1 style = "font-family: 'Fasthand', sans-serif; margin-left: 30px;">Codelingo</h1>
                 </div>
-                <div style = "width: 700px; display: flex; flex-direction: row; position: relative; left: 150px;">
-                    <h1 class = "home-title">Apply.</h1>
-                    <h1 class = "home-title">Repeat.</h1>
-                </div>
-                <img src = "/assets/images/computer1.png" style = "position: absolute; left: 5%; z-index: 1;" width = "700px;">
-            </div>
-            <div class = "home-sub-background-2">
-                <h2>How Mortlingo Works</h2>
-                <div class = "slideshow-container">
-                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
-                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
-                    <div class = "slideshow-image" style = "background-image: url(https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1000)"></div>
-                    <div class = "slideshow-navigation">
-                        <div id = "prev"></div>
-                        <div id = "next"></div>
+                <div class = "carousel-container" id = "carousel-container">
+                    <div class = "carousel-item">
+                        <h2>Flash Cards</h2>
+                        <h3 style = "margin-top: -5px">Practice with interactive flash cards to help you memorize core data structures</h3>
+                        <img src = "https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
                     </div>
-                </div>
-            </div>
-            <!--<div id = "home-background-2">
-                <div class = "home-background-2-image"></div>
-                <div class = "home-background-2-overlay"></div>
-                <div class = "home-background-2-content">
-                    <div id = "navbar-content" style = "margin: 0;"></div>
-                    <div style = "height: 930px; width: 100%; position: relative; top: 70px; display: flex; flex-direction: row;">
-                        <div style = "height: 100%; width: 90%; display: flex; justify-content: center; align-items: center;">
-                            <h1 style = "font-family: 'Quicksand', sans-serif; position: relative; top: -300px; left: 100px;">Code</h1>
-                            <h1 style = "font-family: 'Quicksand', sans-serif; font-size: 120px; position: relative; top: -300px; left: 600px;">Code</h1>
-                            <h1 style = "font-family: 'Quicksand', sans-serif; position: relative; top: -300px; left: -50px;">Code</h1>
-                            <h1 style = "font-family: 'Quicksand', sans-serif; font-size: 120px; position: relative; top: 0px; left: -50px;">Literally.</h1>
-                        </div>
+                    <div class = "carousel-item">
+                        <h2>Personalize</h2>
+                        <h3 style = "margin-top: -5px">Have access to various settings to customize your profile to your liking</h3>
+                        <img src = "https://images.pexels.com/photos/210881/pexels-photo-210881.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
                     </div>
-                    <div style = "height: 930px; width: 100%;display: flex; flex-direction: row; position: relative; top: 70px;">
-                        <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                            <h1 style = "font-family: 'Quicksand', sans-serif;">Test</h1>
-                        </div>
-                        <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class = "carousel-item">
+                        <h2>Topic Selection</h2>
+                        <h3 style = "margin-top: -5px">Choose from four core data structures to expand your knowledge on coding</h3>
+                        <img src = "https://cdn.dribbble.com/users/528920/screenshots/3274789/touch-selection2.gif" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Preliminary Quiz</h2>
+                        <h3 style = "margin-top: -5px">Take our preliminary quiz to gain insight on your level of knowledge on data structures</h3>
+                        <img src = "https://images.pexels.com/photos/5668869/pexels-photo-5668869.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Practice Tests</h2>
+                        <h3 style = "margin-top: -5px">Take practice tests on key concepts to assess your skill</h3>
+                        <img src = "https://images.pexels.com/photos/7092394/pexels-photo-7092394.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Notes</h2>
+                        <h3 style = "margin-top: -5px">Write down important information from our study guides for review later on</h3>
+                        <img src = "https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Sandbox</h2>
+                        <h3 style = "margin-top: -5px">Experiment with data structures and programming through our custom sandbox</h3>
+                        <img src = "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
 
-                        </div>
+                    <!--Repeat-->
+                    <div class = "carousel-item">
+                        <h2>Flash Cards</h2>
+                        <h3 style = "margin-top: -5px">Practice with interactive flash cards to help you memorize core data structures</h3>
+                        <img src = "https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
                     </div>
-                    <button class = "get-started-button">Get Started</button>
+                    <div class = "carousel-item">
+                        <h2>Personalize</h2>
+                        <h3 style = "margin-top: -5px">Have access to various settings to customize your profile to your liking</h3>
+                        <img src = "https://images.pexels.com/photos/210881/pexels-photo-210881.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Topic Selection</h2>
+                        <h3 style = "margin-top: -5px">Choose from four core data structures to expand your knowledge on coding</h3>
+                        <img src = "https://cdn.dribbble.com/users/528920/screenshots/3274789/touch-selection2.gif" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Preliminary Quiz</h2>
+                        <h3 style = "margin-top: -5px">Take our preliminary quiz to gain insight on your level of knowledge on data structures</h3>
+                        <img src = "https://images.pexels.com/photos/5668869/pexels-photo-5668869.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Practice Tests</h2>
+                        <h3 style = "margin-top: -5px">Take practice tests on key concepts to assess your skill</h3>
+                        <img src = "https://images.pexels.com/photos/7092394/pexels-photo-7092394.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Notes</h2>
+                        <h3 style = "margin-top: -5px">Write down important information from our study guides for review later on</h3>
+                        <img src = "https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Sandbox</h2>
+                        <h3 style = "margin-top: -5px">Experiment with data structures and programming through our custom sandbox</h3>
+                        <img src = "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+
+                    <!--Repeat-->
+                    <div class = "carousel-item">
+                        <h2>Flash Cards</h2>
+                        <h3 style = "margin-top: -5px">Practice with interactive flash cards to help you memorize core data structures</h3>
+                        <img src = "https://images.pexels.com/photos/268351/pexels-photo-268351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Personalize</h2>
+                        <h3 style = "margin-top: -5px">Have access to various settings to customize your profile to your liking</h3>
+                        <img src = "https://images.pexels.com/photos/210881/pexels-photo-210881.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Topic Selection</h2>
+                        <h3 style = "margin-top: -5px">Choose from four core data structures to expand your knowledge on coding</h3>
+                        <img src = "https://cdn.dribbble.com/users/528920/screenshots/3274789/touch-selection2.gif" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Preliminary Quiz</h2>
+                        <h3 style = "margin-top: -5px">Take our preliminary quiz to gain insight on your level of knowledge on data structures</h3>
+                        <img src = "https://images.pexels.com/photos/5668869/pexels-photo-5668869.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Practice Tests</h2>
+                        <h3 style = "margin-top: -5px">Take practice tests on key concepts to assess your skill</h3>
+                        <img src = "https://images.pexels.com/photos/7092394/pexels-photo-7092394.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Notes</h2>
+                        <h3 style = "margin-top: -5px">Write down important information from our study guides for review later on</h3>
+                        <img src = "https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
+                    <div class = "carousel-item">
+                        <h2>Sandbox</h2>
+                        <h3 style = "margin-top: -5px">Experiment with data structures and programming through our custom sandbox</h3>
+                        <img src = "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600" height = "150px;" style = "display: block; margin: auto;">
+                        <button class = "carousel-button">Take Me There!</button>
+                    </div>
                 </div>
             </div>
-            <div class = "home-background-3-background"></div>
-            <div class = "home-background-3-content">
-                <div style = "height: 450px; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h2>Accelerated Coding Track</h2>
-                    <div style = "width: 550px; text-align: center;">
-                        <h3>Here at Mortlingo, we strive to help our clients learn the ins and outs of basic computer science data structures, using an effective curriculum that implements both in-depth lessons and hands-on learning</h3>
-                    </div>
-                </div>
-                <div style = "height: 450px; width: 50%; display: flex; justify-content: center; align-items: center;">
-                    <img src = "/assets/images/mort-mascot.png" width = "400px">
-                </div>
-            </div>-->
         </div>
+        <div id = "home-background-2">
+            <div style = "height: 80%; width: 70%; display: flex; flex-direction: row;">
+                <div style = "height: 100%; width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 40px;">
+                    <h2>
+                        <span style = "white-space: nowrap;">Gain knowledge</span>
+                        <span style = "white-space: nowrap;">from an </span><span style = "font-family: 'Fasthand', sans-serif; color: crimson;">accelerated</span>
+                        <span style = "white-space: nowrap;">learning track</span>
+                    </h2>
+                </div>
+                <div class = "separator"></div>
+                <div style = "height: 100%; width: 40%; display: flex; flex-direction: row; justify-content: center; align-items: center; font-size: 150px;">
+                    <h2>&rsaquo;</h2>
+                    <h2 style = "color: gray;">&rsaquo;</h2>
+                    <h2 style = "color: darkgray;">&rsaquo;</h2>
+                </div>
+            </div>
+        </div>
+        <div id = "home-background-3"></div>
         <script>
             $(function() {
                 $("#navbar-content").load("/layouts/navbar.html");
             })
+
+            var carouselItems = document.getElementsByClassName("carousel-item");
+            var carouselContainer = document.getElementById("carousel-container");
+
+            function carouselAnimation() {
+                $(".carousel-item").eq(0).animate({marginLeft: "6300px"}, {duration: 30000, easing: "linear", complete: function() {
+                    $(".carousel-item").eq(0).css("marginLeft", "0px");
+                    carouselAnimation();
+                }});
+            }
+
+            carouselAnimation();
+
         </script>
     </body>
 </html>
