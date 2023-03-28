@@ -7,8 +7,8 @@
         <li>Here is a fairly large bunch of words. If you want, you can edit me! Seriously, try it. Click me and type. It's pretty easy!</li>
         <li>Store: Don't forget milk and eggs. I have coupons for cereal.</li>
         <li>My Java notes: </li>
-        <li>Wow. Such sticky notes. Very CSS.</li>
-        <li>Homework List: </li>
+        <li> CSS features</li>
+        <li>Quiz Takeaways: </li>
       </ul>  
   </head>
   <style>
