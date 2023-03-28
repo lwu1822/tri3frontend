@@ -15,11 +15,11 @@ h1
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     width: 25%;
     background-color: #cecece;
     position: fixed;
-    height: 100%;
+    height: 50%;
     overflow: auto;
     border-radius: 15px;
 }
@@ -30,17 +30,26 @@ li a {
     padding: 8px 16px;
     text-decoration: none;
     transition: width .2s, height, .2s;
+    border-radius: 15px;
 }
 
 li a:hover:not(.active) {
     background-color: crimson;
     color: white;
 }
+
+.home-background-4 {
+            height: 300px;
+            width: 100%;
+            background-color: crimson;
+            text-align: center;
+            font-size: 35px;
+        }
     
 </style>
 
 <html>
-
+    <div>
     <h1>Course Select</h1>
     <ul>
         <li><a href="https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/" target="_blank">Recursion</a></li>
@@ -48,5 +57,10 @@ li a:hover:not(.active) {
         <li><a href="https://www.geeksforgeeks.org/binary-insertion-sort/" target="_blank">Binary Sorting</a></li>
         <li><a href="https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/" target="_blank">Hashmaps</a></li>
     </ul>
+    </div>
+
+    <div id = "home-background-4">
+        <div style = "height: 500px; width: 120%; background-color: crimson; border-radius: 50%; position: fixed; left: -10%; margin-top: 450px; z-index: 1;"></div>
+    </div>
 
 </html>
