@@ -1,21 +1,13 @@
+
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Personal Profile</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>My Profile</title>
   </head>
   <body>
-    <br>
-    <form>
-      <div>
-         <input id="enterSettings" type="button" value="Settings" onclick="enterQuiz()">
-      </div>
-      <p/>
-      <div>
-         <input id="enterStats" type="button" value="Statistics" onclick="enterQuiz()">
-      </div>
-       <p/> <p/>           
-      <div><input id="enterGoals" type="button" value="Coals" onclick="enterQuiz()"></div>
-    </form>
+    <h1>Welcome to your profile!</h1>
+    <p>Click on one of the buttons below to access different sections:</p>
+    <button onclick="window.location.href='settings.html'">Settings</button>
+    <button onclick="window.location.href='goals.html'">Goals</button>
+    <button onclick="window.location.href='statistics.html'">Statistics</button>
   </body>
 </html>
