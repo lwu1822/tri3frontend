@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <h1>'Sticky Notes' that you can create!</h1>
+        <h1>'Sticky Notes' that you can create as notes for learning!</h1>
       <h4>Just click on one to edit, and press enter to create another!</h4>
       <ul contenteditable="true">
         <li>Here is a fairly large bunch of words. If you want, you can edit me! Seriously, try it. Click me and type. It's pretty easy!</li>
