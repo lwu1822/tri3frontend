@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    </head>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: crimson;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 40px;
+        }
+
+        h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: lighter;
+            font-size: 25px;
+        }
+
+        .lesson-background {
+            height: 650px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: crimson;
+        }
+
+        .lesson-container {
+            height: 70%;
+            width: 70%;
+            background-color: white;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 10px 0 rgba(255, 255, 255, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .lesson-navigation {
+            height: 50px;
+            width: 68%;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+        }
+
+        .back-button {
+            height: 50px;
+            width: 50px;
+            background-color: lightgray;
+            color: black;
+            border-radius: 50%;
+            cursor: pointer;
+            transition-duration: 0.7s;
+            position: absolute;
+            left: 0;
+            margin-right: auto;
+            opacity: 0;
+            display: none;
+        }
+
+        .back-button:hover, .next-button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .next-button {
+            height: 50px;
+            width: 50px;
+            background-color: lightgray;
+            color: black;
+            border-radius: 50%;
+            cursor: pointer;
+            transition-duration: 0.7s;
+            position: absolute;
+            right: 0;
+            margin-left: auto;
+            opacity: 0.5;
+            display: block;
+        }
+
+    </style>
+    <body>
+        <div id = "lesson-navbar"></div>
+        <div class = "lesson-background">
+            <div class = "lesson-container">
+                <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
+                    <h2>Introduction to HashMaps</h2>
+                </div>
+                <div class = "lesson-slide" id = "slide-2">
+                    <h2>What is a HashMap?</h2>
+                    <h3 style = "margin-top: -20px;">A HashMap is an important data structure in Java that stores it elements in the form of "key/value" pairs.
+                        The elements saved within in it can be accessed with their respective keys.
+                    </h3>
+                </div>
+                <div class = "lesson-slide" id = "slide-3">
+                    <h2>An analogy</h2>
+                    <h3 style = "margin-top: -20px;">Basically, think of a HashMap as a locker room that contains several lockers, which represent the individual elements within it.
+                        In order to gain access to the content stored within a specific locker, you would need the lock password, or in other words, its key. 
+                    </h3>
+                    <img src = "/assets/css/images/locker.png" height = "150px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-4">
+                    <h2>Why HashMap?</h2>
+                    <h3 style = "margin-top: -20px;">HashMaps are useful in that they allow us to assign unique keys to data we want to store. This gives us the ability to create 
+                        features like search bars, where a certain result is returned based on the input of a search term or key.
+                    </h3>
+                    <img src = "/assets/css/images/searchbar.gif" height = "175px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-5">
+                    <h2>So what are you waiting for?</h2>
+                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement HashMaps into your code.
+                    </h3>
+                </div>
+                <div class = "lesson-navigation">
+                    <div class = "back-button" id = "back-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
+                    </div>
+                    <div class = "next-button" id = "next-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#lesson-navbar").load("/layouts/lesson-navbar.html");
+            })
+
+            $("#back-button").click(previousSlide);
+            $("#next-button").click(nextSlide);
+
+            $(".lesson-slide").not("#slide-1").css("display", "none");
+            $(".lesson-slide").not("#slide-1").css("opacity", 0);
+
+            var slidesArray = document.getElementsByClassName("lesson-slide");
+
+            function previousSlide() {
+                var slideIndex;
+                for (var i = 0; i < slidesArray.length; i++) {
+                    if (slidesArray[i].style.display == "flex") {
+                        slideIndex = i;
+                        break;
+                    }
+                }
+                var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
+                if (slideNumber > 1) {
+                    if (slideIndex == 1) {
+                        $("#back-button").animate({opacity: 0}, {duration: 700, queue: false, complete: function() {
+                            $("#back-button").css("display", "none");
+                        }})
+                    }
+                    $("#slide-" + slideNumber).animate({opacity: 0}, {duration: 700, queue: true, complete: function() {
+                        $("#slide-" + slideNumber).css("display", "none");
+                        $("#slide-" + (slideNumber - 1)).css("display", "flex");
+                        $("#slide-" + (slideNumber - 1)).animate({opacity: 1}, {duration: 700, queue: true});
+                    }});
+                }
+            }
+
+            function nextSlide() {
+                var slideIndex;
+                for (var i = 0; i < slidesArray.length; i++) {
+                    if (slidesArray[i].style.display == "flex") {
+                        slideIndex = i;
+                        break;
+                    }
+                }
+                var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
+                if (slideNumber < 5) {
+                    if (slideIndex == 0) {
+                        $("#back-button").css("display", "block");
+                        $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
+                    }
+                    $("#slide-" + slideNumber).animate({opacity: 0}, {duration: 700, queue: true, complete: function() {
+                        $("#slide-" + slideNumber).css("display", "none");
+                        $("#slide-" + (slideNumber + 1)).css("display", "flex");
+                        $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
+                    }});
+                }
+            }
+
+        </script>
+    </body>
+</html>

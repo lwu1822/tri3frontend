@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: royalblue;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .practice-background-1 {
+            height: 650px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: royalblue;
+        }
+
+        .selection-navbar {
+            height: 100px;
+            width: 80%;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .selection {
+            height: 50px;
+            width: 120px;
+            background-color: whitesmoke;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 25px;
+            margin-left: 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition-duration: 0.7s;
+        }
+
+        #practice-main-container {
+            height: 500px;
+            width: 60%;
+            background-color: black;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        #starting-point {
+            height: 10px;
+            width: 95%;
+            display: block;
+            margin: auto;
+            background-color: transparent;
+        }
+
+        .meteor {
+            height: 90px;
+            width: 75px;
+            background-color: gray;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            position: absolute;
+            z-index: 2;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ground {
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            position: relative;
+            top: 430px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #input-field {
+            height: 35px;
+            width: 250px;
+            background-color: lightgray;
+            border-radius: 50px;
+            border: none;
+            padding-left: 10px;
+            margin-right: 10px;
+        }
+
+        .meteor-button {
+            height: 35px;
+            width: 150px;
+            background-color: royalblue;
+            margin-left: 10px;
+            color: white;
+            border-radius: 50px;
+            border: none;
+            transition-duration: 0.7s;
+        }
+
+        .meteor-button:hover {
+            background-color: lightblue;
+            color: black;
+        }
+
+        #input-field::placeholder {
+            color: black;
+        }
+
+    </style>
+    <body>
+        <div class = "practice-background-1">
+            <div class = "selection-navbar">
+                <div class = "selection"><p>Flashcards</p></div>    
+                <div class = "selection"><p>Meteors</p></div>
+            </div>
+            <div id = "practice-main-container">
+                <div id = "ground">
+                    <form id = "meteor-form" onsubmit = "destroyMeteor()">
+                        <input id = "input-field" type = "text" placeholder = "Type time complexity here">
+                        <input class = "meteor-button" type = "submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            var practiceMainContainer = document.getElementById("practice-main-container");
+
+            var score = 0;
+            var questionSet = [
+                {q: "HashMap get and put", a: "o(1)"},
+                {q: "Accessing LinkedList", a: "o(n/2)"},
+                {q: "Iterating through 1d array", a:"o(n)"},
+                {q: "Iterating through 2d array", a:"o(n*m)"},
+                {q: "Binary search", a:"o(log n)"}
+            ];
+
+            var liveMeteor;
+
+            var meteorGenerator = setInterval(meteors, 6000);
+            var meteorCount = 0;
+            function meteors() {
+                var initialPosition = Math.random() * 850;
+                var meteor = document.createElement("div");
+                meteor.setAttribute("class", "meteor");
+                meteor.style.transform = "translate(" + initialPosition + "px , 0px)";
+                var meteorContent = document.createElement("p");
+                var randIndex = Math.floor(Math.random() * 5);
+                meteorContent.innerHTML = questionSet[randIndex].q;
+                liveMeteor = questionSet[randIndex].a;
+                meteor.appendChild(meteorContent);
+                practiceMainContainer.appendChild(meteor);
+                $(".meteor").animate({top: "490px"}, {duration: 5000, queue: false, easing: "linear", complete: function() {
+                    endGame();
+                }});
+                meteorCount++;
+                if (meteorCount >= 11) {
+                    clearInterval(meteorGenerator);
+                }
+            }
+
+            var inputField = document.getElementById("input-field");
+
+            function destroyMeteor() {
+                event.preventDefault();
+                var value = inputField.value.toLowerCase();
+                inputField.value = "";
+                var currentMeteors = document.getElementsByClassName("meteor");
+                if (value == liveMeteor) {
+                    $(".meteor").remove();
+                }
+            }
+
+            function endGame() {
+                alert("Game Over!");
+                clearInterval(meteorGenerator);
+            }
+
+        </script>
+    </body>
+</html>

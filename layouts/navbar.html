@@ -29,6 +29,7 @@
             font-size: 20px;
             margin-left: 50px;
             transition: width .2s, height, .2s;
+            cursor: pointer;
         }
 
         .navbar-link:hover
@@ -54,13 +55,24 @@
             border-radius: 10px;
         }
 
+        .right-sidebar-background {
+            height: 110%;
+            width: 0px;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            z-index: 4;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+        }
+
         #right-sidebar {
             height: 100%;
             width: 0px;
-            background-color: black;
             color: white;
             position: fixed;
-            z-index: 4;
+            z-index: 5;
             top: 0;
             right: 0;
             overflow-x: hidden;
@@ -79,11 +91,12 @@
             padding: 10px;
             background-color: royalblue;
             border: none;
-            margin-top: 15px;
+            margin-top: 30px;
         }
 
         .right-sidebar-link {
             font-size: 21px;
+            font-family: 'Quicksand', sans-serif;
             color: white;
             display: block;
             text-align: center;
@@ -97,24 +110,25 @@
     <body>
         <div class = "navbar-container">
             <img src = "/assets/css/images/Codelingo-logos_white.png" width = "150px" style = "position: relative; top: 10px; left: 30px;">
-            <a class = "navbar-link">Home</a>
-            <a class = "navbar-link">About</a>
-            <a class = "navbar-link">Language Selection</a>
+            <a class = "navbar-link" href = "/templates/index.html">Home</a>
+            <a class = "navbar-link" href = "/templates/about.html">About</a>
+            <a class = "navbar-link" href = "/templates/select-course.html">Topic Selection</a>
             <div id = "menu">
                 <div class = "menu-line"></div>
                 <div class = "menu-line"></div>
                 <div class = "menu-line"></div>
             </div>
+            <div class = "right-sidebar-background"></div>
             <div id = "right-sidebar">
                 <p id = "right-sidebar-close-button">x</p>
                 <div class = "right-sidebar-link-container" style = "margin-top: -15px;">
-                    <a class = "right-sidebar-link" href = "/DADY-Academy/security/login.html">Login</a>
+                    <a class = "right-sidebar-link" href = "/templates/login.html">Login</a>
                 </div>
                 <div class = "right-sidebar-link-container">
-                    <a class = "right-sidebar-link" href = "/DADY-Academy/security/signup.html">Sign Up</a>
+                    <a class = "right-sidebar-link" href = "/templates/signup.html">Sign Up</a>
                 </div>
             </div>
         </div>
-        <script src = "/assets/js/navbar.js"></script>
+        <script src = "/assets/css/js/navbar.js"></script>
     </body>
 </html>

@@ -10,7 +10,7 @@
         html, body {
             padding: 0;
             margin: 0;
-            background-image: linear-gradient(to right, #ffd89b, #19547b);
+            background-color: #3aafa9;
             font-family: 'Quicksand', sans-serif;
             overflow-x: hidden;
         }
@@ -27,15 +27,15 @@
         .quiz-container {
             height: 450px;
             width: 650px;
-            background-color: black;
+            background-color: lightgray;
             border-radius: 50px;
-            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
-            padding: 15px;
+            padding: 20px;
         }
 
         .question-container {
             height: 100%;
             width: 100%;
+            opacity: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -45,7 +45,7 @@
         .question {
             display: block;
             text-align: center;
-            color: white;
+            color: black;
             font-family: 'Quicksand', sans-serif;
             font-weight: lighter;
             font-size: 25px;
@@ -60,6 +60,7 @@
             justify-content: center;
             align-items: center;
             color: white;
+            cursor: pointer;
         }
 
         .selection-1, .selection-3 {
@@ -70,22 +71,28 @@
             margin-left: 10px;
         }
 
-        #prev, #next {
+        .prev, .next {
             height: 30px;
             width: 125px;
             background-color: royalblue;
             border: none;
             border-radius: 50px;
             color: white;
+            cursor: pointer;
+            transition-duration: 0.7s;
         }
 
-        #prev {
+        .prev:hover, .next:hover {
+            background-color: dodgerblue;
+        }
+
+        .prev {
             position: relative;
             left: 0;
             margin-right: auto;
         }
 
-        #next {
+        .next {
             position: relative;
             right: 0;
             margin-left: auto;
@@ -97,201 +104,201 @@
         <div style = "height: 900px; width: 100%; display: flex; justify-content: center; align-items: center;">
             <div class = "quiz-container">
                 <div class = "question-container" id = "quiz-question-1">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-2">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1" style = "height: 100px;"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-3">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-4">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-5">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-6">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-7">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-8">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-9">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-10">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
                 <div class = "question-container" id = "quiz-question-11">
-                    <h1 class = "question">What level coder would you rate yourself?</h1>
+                    <h1 class = "question"></h1>
                     <br><br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-1"><p>Beginner</p></div>
-                        <div class = "selection-2"><p>Intermediate</p></div>
+                        <div class = "selection-1"><p></p></div>
+                        <div class = "selection-2"><p></p></div>
                     </div>
                     <br>
                     <div style = "display: flex; flex-direction: row;">
-                        <div class = "selection-3"><p>Advanced</p></div>
-                        <div class = "selection-4"><p>Unsure</p></div>
+                        <div class = "selection-3"><p></p></div>
+                        <div class = "selection-4"><p></p></div>
                     </div>
                     <br><br>
                     <div style = "width: 70%; display: flex; flex-direction: row">
-                        <button id = "prev">Back</button>
-                        <button id = "next">Next</button>
+                        <button class = "prev">Back</button>
+                        <button class = "next">Next</button>
                     </div>
                 </div>
             </div>
@@ -307,31 +314,86 @@
                 questionContainers[i].style.opacity = 0;
             }
 
-            var prevButton = document.getElementById("prev");
-            var nextButton = document.getElementById("next");
-            prevButton.addEventListener("click", prevQuestion);
-            nextButton.addEventListener("click", nextQuestion);
-            var page = 1;
+            $(".prev").click(prevQuestion);
+            $(".next").click(nextQuestion);
 
-            function prevQuestion() {
-                if (page > 1) {
-                    $("#quiz-question-" + page).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
-                        $("#quiz-question-" + page).css("display", "none");
-                    }});
-                    page--;
-                    $("#quiz-question-" + page).css("display", "flex");
-                    $("#quiz-question-" + page).animate({opacity: 1}, {duration: 1000, queue: true});
+            $(".selection-1").click(highlight);
+            $(".selection-2").click(highlight);
+            $(".selection-3").click(highlight);
+            $(".selection-4").click(highlight);
+
+            function highlight() {
+                var backgroundStatus = $(this).css("backgroundColor");
+                var selectionAttribute = $(this).attr("class");
+                if (backgroundStatus == "rgb(112, 128, 144)") {
+                    $(this).parent().parent().children().children(".selection-1").css("backgroundColor", "slategray");
+                    $(this).parent().parent().children().children(".selection-2").css("backgroundColor", "slategray");
+                    $(this).parent().parent().children().children(".selection-3").css("backgroundColor", "slategray");
+                    $(this).parent().parent().children().children(".selection-4").css("backgroundColor", "slategray");
+                    $(this).css("backgroundColor", "darkblue");
+                } else if (backgroundStatus == "rgb(0, 0, 139)") {
+                    $(this).css("backgroundColor", "slategray");
                 }
             }
-            function nextQuestion() {
-                if (page < 11) {
-                    $("#quiz-question-" + page).animate({opacity: 0}, {duration: 1000, queue: true, complete: function() {
-                        $("#quiz-question-" + page).css("display", "none");
-                        $("#quiz-question-" + (page + 1)).css("display", "flex");
-                        $("#quiz-question-" + (page + 1)).animate({opacity: 1}, {duration: 1000, queue: true});
+
+            function prevQuestion() {
+                var questionID = parseInt($(this).parent().parent().attr("id").substring(14));
+                if (questionID > 1) {
+                    $("#quiz-question-" + questionID).animate({opacity: 0}, {duration: 700, queue: true, complete: function() {
+                        $("#quiz-question-" + questionID).css("display", "none");
+                        $("#quiz-question-" + (questionID - 1)).css("display", "flex");
+                        $("#quiz-question-" + (questionID - 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
                 }
-                page++;
+            }
+
+            function nextQuestion() {
+                var questionID = parseInt($(this).parent().parent().attr("id").substring(14));
+                if (questionID < 11) {
+                    $("#quiz-question-" + questionID).animate({opacity: 0}, {duration: 700, queue: true, complete: function() {
+                        $("#quiz-question-" + questionID).css("display", "none");
+                        $("#quiz-question-" + (questionID + 1)).css("display", "flex");
+                        $("#quiz-question-" + (questionID + 1)).animate({opacity: 1}, {duration: 700, queue: true});
+                    }});
+                }
+            }
+
+            var questions = [
+                "What level coder would you rate yourself?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?",
+                "Which statement correctly describes a HashMap?"
+            ];
+
+            var selections = [
+                {s1: "Beginner", s2: "Intermediate", s3: "Advanced", s4: "Unsure"},
+                {s1: "HashMap<String> hashMapName = new HashMap<String>(); is a correct way of instantiating a HashMap", s2: "A HashMap cannot store keys and values in the same data type", s3: "A HashMap stores data in key/value pairs", s4: "If you insert a duplicate key into a HashMap, a new item is added to the HashMap", c: "A HashMap stores data in key/value pairs"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"},
+                {s1: "FIFO", s2: "FILO", s3: "LILO", s4: "LIFO", c: "LIFO"}
+            ];
+
+            for (var i = 0; i < questions.length; i++) {
+                $("#quiz-question-" + (i + 1)).children(".question").html(questions[i]);
+            }
+
+            for (var j = 0; j < selections.length; j++) {
+                $("#quiz-question-" + (j + 1)).children().children(".selection-1").children("p").html(selections[j].s1);
+                $("#quiz-question-" + (j + 1)).children().children(".selection-2").children("p").html(selections[j].s2);
+                $("#quiz-question-" + (j + 1)).children().children(".selection-3").children("p").html(selections[j].s3);
+                $("#quiz-question-" + (j + 1)).children().children(".selection-4").children("p").html(selections[j].s4);
             }
             
         </script>
