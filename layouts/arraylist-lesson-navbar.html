@@ -61,5 +61,44 @@
             <div class = "lesson-link"><p>7</p></div>
             <div class = "lesson-link"><p>8</p></div>
         </div>
+        <script>
+            var lessonName = window.location.pathname.substring(9);
+            var lessonLinks = document.getElementsByClassName("lesson-link");
+            console.log(lessonName);
+            switch (lessonName) {
+                case "lesson-1.html":
+                    lessonLinks[0].style.backgroundColor = "white";
+                    lessonLinks[0].style.color = "black";
+                    break;
+                case "lesson-2.html":
+                    lessonLinks[1].style.backgroundColor = "white";
+                    lessonLinks[1].style.color = "black";
+                    break;
+                case "lesson-3.html":
+                    lessonLinks[2].style.backgroundColor = "white";
+                    lessonLinks[2].style.color = "black";
+                    break;
+                case "lesson-4.html":
+                    lessonLinks[3].style.backgroundColor = "white";
+                    lessonLinks[3].style.color = "black";
+                    break;
+                case "lesson-5.html":
+                    lessonLinks[4].style.backgroundColor = "white";
+                    lessonLinks[4].style.color = "black";
+                    break;
+                case "lesson-6.html":
+                    lessonLinks[5].style.backgroundColor = "white";
+                    lessonLinks[5].style.color = "black";
+                    break;
+                case "lesson-7.html":
+                    lessonLinks[6].style.backgroundColor = "white";
+                    lessonLinks[6].style.color = "black";
+                    break;
+                case "lesson-8.html":
+                    lessonLinks[7].style.backgroundColor = "white";
+                    lessonLinks[7].style.color = "black";
+                    break;
+            }
+        </script>
     </body>
 </html>
