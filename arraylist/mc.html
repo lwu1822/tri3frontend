@@ -1,0 +1,181 @@
+  
+<script>
+
+       // prepare URL
+    var url = "https://codelingo.duckdns.org/api/score/";
+    // Uncomment next line for localhost testing
+    // url = "http://localhost:8085/api/person/";
+
+    // set options for cross origin header request
+    const options = {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    };
+
+    // fetch the API
+    fetch(url, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+        // check for response errors and display
+        if (response.status !== 200) {
+            const errorMsg = 'Database response error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            resultContainer.appendChild(tr);
+            return;
+        }
+        // valid response will contain json data
+        response.json().then(data => {
+            //for debugging stuff
+            console.log(data);
+
+var baseurl = "https://codelingo.duckdns.org"
+
+    // Authenticate endpoint
+    const login_url = baseurl + '/api/score/postscore';
+
+    const body = {
+        email: "a@gmail.com",
+        quiz: "arraylist", 
+        attempt: 1,
+        correct: 5,
+        total: 5
+    };
+
+
+
+    // Set Headers to support cross origin
+    //IMPORTANT!!!!!!! TO SUCCESSFULLY POST, YOU NEED TO REMOVE
+    // credentials:'include'
+    //IMPORTANT!!! above only applies to if JWT is not needed (check SecurityConfig.java)
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        body: JSON.stringify(body),
+        headers: {
+            "content-type": "application/json"
+        },
+    };
+
+
+        fetch(login_url, requestOptions)
+        .then(response => {
+            // trap error response from Web API
+            if (!response.ok) {
+                const errorMsg = 'Login error: ' + response.status;
+                console.log(errorMsg);
+            
+                return;
+            }
+
+            console.log("Log success");
+
+        })
+
+
+  
+        })
+        
+    })
+    
+
+
+    /*
+    var id = data.id;
+    var email = data.email; 
+
+    console.log("id: " + id);
+    */ 
+    
+  
+
+    
+
+    /*
+    // prepare URL
+    var url = "https://codelingo.duckdns.org/api/quiz/";
+    // Uncomment next line for localhost testing
+    // url = "http://localhost:8085/api/person/";
+
+    // set options for cross origin header request
+    const options = {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    };
+
+    // fetch the API
+    fetch(url, options)
+        // response is a RESTful "promise" on any successful fetch
+        .then(response => {
+        // check for response errors and display
+        if (response.status !== 200) {
+            const errorMsg = 'Database response error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            resultContainer.appendChild(tr);
+            return;
+        }
+        // valid response will contain json data
+        response.json().then(data => {
+            //for debugging stuff
+            console.log(data);
+            console.log("topic: " + data[0]["topic"]);
+
+            var questionSet = [
+            ];
+
+            for (let i = 0; i < data.length; i++) {
+                //only add arraylist questions to this activity
+                if (data[i]["topic"] == "arraylist") {
+                    //retrieve questions from backend
+                    var question = data[i]["question"];
+                    //retrieve answers from backend
+                    var answer = data[i]["answer"];
+
+                    //format the question
+                    var questionArray = question.split("||");
+                    //debugging
+                    console.log("questionArray: " + questionArray);
+                    var questionFormatted = "";
+                    for (let i = 0; i < questionArray.length; i++) {
+                        questionFormatted += questionArray[i] + "\n";
+                    }
+                    //debugging
+                    console.log("formatted question: " + questionFormatted);
+
+                    //add backend's question to questionSet
+                    var questionObject = {q: questionFormatted, a: answer};
+                    questionSet.push(questionObject);
+                    questionSet.forEach(testFunc);
+
+                }
+            }
+
+
+
+            function testFunc(item) {
+                console.log(item);
+            }
+
+        })
+    })
+    */
+</script>
