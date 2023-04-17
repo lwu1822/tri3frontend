@@ -193,16 +193,91 @@
             </div>
         </div>
         <script>
+
+            
+            
+             // prepare URL
+            var url = "https://codelingo.duckdns.org/api/quiz/";
+            // Uncomment next line for localhost testing
+            // url = "http://localhost:8085/api/person/";
+
+            // set options for cross origin header request
+            const options = {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'include', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            };
+
+            // fetch the API
+            fetch(url, options)
+                // response is a RESTful "promise" on any successful fetch
+                .then(response => {
+                // check for response errors and display
+                if (response.status !== 200) {
+                    const errorMsg = 'Database response error: ' + response.status;
+                    console.log(errorMsg);
+                    const tr = document.createElement("tr");
+                    const td = document.createElement("td");
+                    td.innerHTML = errorMsg;
+                    tr.appendChild(td);
+                    resultContainer.appendChild(tr);
+                    return;
+                }
+                // valid response will contain json data
+                response.json().then(data => {
+                    //for debugging stuff
+                    console.log(data);
+                    console.log("topic: " + data[0]["topic"]);
+
+                    for (let i = 0; i < data.length; i++) {
+                        //only add arraylist questions to this activity
+                        if (data[i]["topic"] == "arraylist") {
+                            //retrieve questions from backend
+                            var question = data[i]["question"];
+                            //retrieve answers from backend
+                            var answer = data[i]["answer"];
+
+                            //format the question
+                            var questionArray = question.split("||");
+                            //debugging
+                            console.log("questionArray: " + questionArray);
+                            var questionFormatted = "";
+                            for (let i = 0; i < questionArray.length; i++) {
+                                questionFormatted += questionArray[i] + "\n";
+                            }
+                            //debugging
+                            console.log("formatted question: " + questionFormatted);
+
+                            //add backend's question to questionSet
+                            var questionObject = {q: questionFormatted, a: answer};
+                            questionSet.push(questionObject);
+                            questionSet.forEach(testFunc);
+
+                        }
+                    }
+                   
+
+
+                    })
+                }
+                )
+                
+
+
             var practiceMainContainer = document.getElementById("practice-main-container");
 
             var score = 0;
             var questionSet = [
-                {q: "HashMap get and put", a: "o(1)"},
-                {q: "Accessing LinkedList", a: "o(n/2)"},
-                {q: "Iterating through 1d array", a:"o(n)"},
-                {q: "Iterating through 2d array", a:"o(n*m)"},
-                {q: "Binary search", a:"o(log n)"}
             ];
+
+
+            function testFunc(item) {
+                console.log(item);
+            }
 
             var meteorCount = 0;
             var meteorID = 1;
@@ -237,7 +312,7 @@
                     meteor.setAttribute("id", "meteor-" + meteorID);
                     meteor.style.transform = "translate(" + initialPosition + "px , -50px)";
                     var meteorContent = document.createElement("p");
-                    var randIndex = Math.floor(Math.random() * 5);
+                    var randIndex = Math.floor(Math.random() * questionSet.length);
                     meteorContent.innerHTML = questionSet[randIndex].q;
                     meteor.setAttribute("answer", questionSet[randIndex].a);
                     meteor.appendChild(meteorContent);
