@@ -256,16 +256,31 @@
             var inputField = document.getElementById("input-field");
 
             function destroyMeteor() {
-                event.preventDefault();
-                var value = inputField.value.toLowerCase();
-                inputField.value = "";
-                var liveMeteors = document.getElementsByClassName("meteor");
-                for (var i = 0; i < liveMeteors.length; i++) {
-                    if (value == liveMeteors[i].getAttribute("answer")) {
-                        liveMeteors[i].remove();
+                var timeComplexity = document.getElementById("input-field").value;
+                var meteor = document.createElement("div");
+                meteor.setAttribute("class", "meteor");
+                meteor.innerHTML = timeComplexity;
+
+                var x = Math.floor(Math.random() * (document.getElementById("practice-main-container").offsetWidth - 75));
+                meteor.style.left = x + "px";
+
+                var y = -90;
+                meteor.style.top = y + "px";
+
+                document.getElementById("practice-main-container").appendChild(meteor);
+
+                var meteorInterval = setInterval(function() {
+                    y += 10;
+                    meteor.style.top = y + "px";
+                    if (y >= 430) {
+                    clearInterval(meteorInterval);
+                    meteor.remove();
                     }
+                }, 50);
+
+                return false;
                 }
-            }
+
 
             function endGame() {
                 var liveMeteors = document.getElementsByClassName("meteor");
