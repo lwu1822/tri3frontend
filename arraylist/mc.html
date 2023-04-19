@@ -320,6 +320,107 @@ var baseurl = "https://codelingo.duckdns.org"
         },
     };
 
+    //questions from backend are added to questionSet
+    var questionSet = [
+    ];
+
+    //populate questions into questionSet with fetch request
+    async function fetchQuestion() {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        //for debugging stuff
+        console.log(data);
+        console.log("topic: " + data[0]["topic"]);
+
+        for (let i = 0; i < data.length; i++) {
+            //only add arraylist questions to this activity
+            if (data[i]["topic"] == "arraylist") {
+                //retrieve questions from backend
+                var question = data[i]["question"];
+                //retrieve answers from backend
+                var answer = data[i]["answer"];
+
+                //format the question
+                var questionArray = question.split("||");
+                //debugging
+                console.log("questionArray: " + questionArray);
+
+                //split parts of the question into the question, choiceA, choiceB, etc.
+                var questionOnly = questionArray[0];
+                var choiceA = questionArray[1];
+                var choiceB = questionArray[2];
+                var choiceC = questionArray[3];
+                var choiceD = questionArray[4];
+
+                //add backend's question to questionSet
+                var questionObject = {q: questionOnly, choiceA: choiceA, choiceB: choiceB, choiceC: choiceC, choiceD: choiceD, a: answer};
+                questionSet.push(questionObject);
+                questionSet.forEach(testFunc);
+
+            }
+        }
+
+        //debugging
+        function testFunc(item) {
+            console.log(item);
+        }
+
+
+    }
+
+
+    var count = 0; 
+
+    function changeQuestion() {
+        //add question to html
+        var p = document.createElement("p");
+        var questionText = document.createTextNode(questionSet[count]["q"]);
+        p.appendChild(questionText);
+        document.getElementById("jsAddquestion").appendChild(p);
+
+    
+        //debugging
+        console.log("questionsetlength: " + Object.keys(questionSet[count]).length);
+
+        //add mc answer choices to html
+        var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
+
+        for (let i = 1; i < Object.keys(questionSet[count]).length - 1; i++) {
+            var label = document.createElement("label");
+            label.setAttribute("for", outputList[i]);
+            label.innerHTML = Object.values(questionSet[count])[i];
+            var appendId = "jsAdd" + outputList[i];
+            document.getElementById(appendId).appendChild(label);
+        }               
+
+        var button = document.createElement("button");
+        button.setAttribute("onclick", "javascript: submit();");
+        var buttonText = document.createTextNode("submit");
+        button.appendChild(buttonText);
+        document.getElementById("practice-main-container").appendChild(button);
+
+        submit();
+
+    }
+    
+    function submit() {
+        console.log("hi");
+        //if (document.getElementById("choiceA").checked) {
+        //    console.log("hi");
+        //    count++;
+        //    changeQuestion();
+        //}
+    }
+    async function init() {
+        await fetchQuestion();
+        changeQuestion();
+        console.log("hi");
+    }
+
+    init();
+
+/*
     // fetch the API
     fetch(url, options)
         // response is a RESTful "promise" on any successful fetch
@@ -426,6 +527,6 @@ var baseurl = "https://codelingo.duckdns.org"
         testFunc("hi");
     }
     
-
+*/
 
 </script>
