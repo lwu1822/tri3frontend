@@ -327,11 +327,7 @@ var baseurl = "https://codelingo.duckdns.org"
         if (response.status !== 200) {
             const errorMsg = 'Database response error: ' + response.status;
             console.log(errorMsg);
-            const tr = document.createElement("tr");
-            const td = document.createElement("td");
-            td.innerHTML = errorMsg;
-            tr.appendChild(td);
-            resultContainer.appendChild(tr);
+
             return;
         }
         // valid response will contain json data
@@ -340,6 +336,7 @@ var baseurl = "https://codelingo.duckdns.org"
             console.log(data);
             console.log("topic: " + data[0]["topic"]);
 
+            //questions from backend are added to questionSet
             var questionSet = [
             ];
 
@@ -355,17 +352,14 @@ var baseurl = "https://codelingo.duckdns.org"
                     var questionArray = question.split("||");
                     //debugging
                     console.log("questionArray: " + questionArray);
-                    //var questionFormatted = "";
                     var questionOnly = questionArray[0];
                     var choiceA = questionArray[1];
                     var choiceB = questionArray[2];
                     var choiceC = questionArray[3];
                     var choiceD = questionArray[4];
 
-                  
 
                     //add backend's question to questionSet
-
                     var questionObject = {q: questionOnly, choiceA: choiceA, choiceB: choiceB, choiceC: choiceC, choiceD: choiceD, a: answer};
                     questionSet.push(questionObject);
                     questionSet.forEach(testFunc);
@@ -374,35 +368,29 @@ var baseurl = "https://codelingo.duckdns.org"
             }
 
 
-            
+            //add question to html
             var p = document.createElement("p");
             var questionText = document.createTextNode(questionSet[0]["q"]);
             p.appendChild(questionText);
             document.getElementById("jsAddquestion").appendChild(p);
 
            
-
+            //debugging
             console.log("questionsetlength: " + Object.keys(questionSet[0]).length);
 
+            //add mc answer choices to html
             var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
 
             for (let i = 1; i < Object.keys(questionSet[0]).length - 1; i++) {
-                
-
                 var label = document.createElement("label");
                 label.setAttribute("for", outputList[i]);
                 label.innerHTML = Object.values(questionSet[0])[i];
                 var appendId = "jsAdd" + outputList[i];
                 document.getElementById(appendId).appendChild(label);
-
-
             }
         
            
-
-            
-
-
+            //debugging
             function testFunc(item) {
                 console.log(item);
             }
