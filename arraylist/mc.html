@@ -191,7 +191,8 @@
                 <div class="mcText" id="jsAddchoiceD"> <input type="radio" id="choiceD" name="mc"></div>
                 </form>
 
-                <button type="button" onclick="submit()">Submit</button>
+                
+                <!--<button type="button" onclick="submit()">Submit</button>-->
            
           
             </div>
@@ -368,40 +369,63 @@ var baseurl = "https://codelingo.duckdns.org"
             }
 
 
-            //add question to html
-            var p = document.createElement("p");
-            var questionText = document.createTextNode(questionSet[0]["q"]);
-            p.appendChild(questionText);
-            document.getElementById("jsAddquestion").appendChild(p);
+            var count = 0; 
+            changeQuestion();
 
-           
-            //debugging
-            console.log("questionsetlength: " + Object.keys(questionSet[0]).length);
+            function changeQuestion() {
+                //add question to html
+                var p = document.createElement("p");
+                var questionText = document.createTextNode(questionSet[count]["q"]);
+                p.appendChild(questionText);
+                document.getElementById("jsAddquestion").appendChild(p);
 
-            //add mc answer choices to html
-            var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
+            
+                //debugging
+                console.log("questionsetlength: " + Object.keys(questionSet[count]).length);
 
-            for (let i = 1; i < Object.keys(questionSet[0]).length - 1; i++) {
-                var label = document.createElement("label");
-                label.setAttribute("for", outputList[i]);
-                label.innerHTML = Object.values(questionSet[0])[i];
-                var appendId = "jsAdd" + outputList[i];
-                document.getElementById(appendId).appendChild(label);
+                //add mc answer choices to html
+                var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
+
+                for (let i = 1; i < Object.keys(questionSet[count]).length - 1; i++) {
+                    var label = document.createElement("label");
+                    label.setAttribute("for", outputList[i]);
+                    label.innerHTML = Object.values(questionSet[count])[i];
+                    var appendId = "jsAdd" + outputList[i];
+                    document.getElementById(appendId).appendChild(label);
+                }               
+
+                var button = document.createElement("button");
+                button.setAttribute("onclick", "javascript: submit();");
+                var buttonText = document.createTextNode("submit");
+                button.appendChild(buttonText);
+                document.getElementById("practice-main-container").appendChild(button);
+
+                submit();
+
             }
-        
-           
+
             //debugging
             function testFunc(item) {
                 console.log(item);
             }
 
+            function submit() {
+                console.log("hi");
+                //if (document.getElementById("choiceA").checked) {
+                //    console.log("hi");
+                //    count++;
+                //    changeQuestion();
+                //}
+            }
+
         })
     })
-    
+
     function submit() {
-        if (document.getElementById("choiceA").checked) {
-            console.log("hi");
-        }
+        console.log("outside button");
+        testFunc("hi");
     }
+    
+
 
 </script>
