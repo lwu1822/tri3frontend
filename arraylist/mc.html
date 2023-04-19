@@ -192,6 +192,8 @@
                 <div class="mcText" id="jsAddchoiceD"> </div>
                 </form>
 
+                <div id="jsAddButton"></div>
+
                 <!--
                 <form action="">
                 <div class="mcText" id="jsAddchoiceA"> <input type="radio" id="choiceA" name="mc"></div>
@@ -391,47 +393,47 @@ var baseurl = "https://codelingo.duckdns.org"
             var clearId = "jsAdd" + outputList[i];
             document.getElementById(clearId).innerHTML = "";
         }
-
-        //document.getElementById("jsAddchoiceA").innerHTML = "";
-
-        if (count == 0) {
-            //add question to html
-            var p = document.createElement("p");
-            var questionText = document.createTextNode(questionSet[count]["q"]);
-            p.appendChild(questionText);
-            document.getElementById("jsAddquestion").appendChild(p);
+        document.getElementById("jsAddButton").innerHTML = ""; 
 
         
-            //debugging
-            console.log("questionsetlength: " + Object.keys(questionSet[count]).length);
+        //add question to html
+        var p = document.createElement("p");
+        var questionText = document.createTextNode(questionSet[count]["q"]);
+        p.appendChild(questionText);
+        document.getElementById("jsAddquestion").appendChild(p);
 
-            //add mc answer choices to html
-            for (let i = 1; i < Object.keys(questionSet[count]).length - 1; i++) {
-                var input = document.createElement("input");
-                input.setAttribute("type", "radio");
-                input.setAttribute("id", outputList[i]);
-                input.setAttribute("name", "mc");
+    
+        //debugging
+        console.log("questionsetlength: " + Object.keys(questionSet[count]).length);
 
-                var label = document.createElement("label");
-                label.setAttribute("for", outputList[i]);
-                label.innerHTML = Object.values(questionSet[count])[i];
-                var appendId = "jsAdd" + outputList[i];
-                
-                document.getElementById(appendId).appendChild(input);
-                document.getElementById(appendId).appendChild(label);
-            }               
+        //add mc answer choices to html
+        for (let i = 1; i < Object.keys(questionSet[count]).length - 1; i++) {
+            var input = document.createElement("input");
+            input.setAttribute("type", "radio");
+            input.setAttribute("id", outputList[i]);
+            input.setAttribute("name", "mc");
 
-            //create button
-            var button = document.createElement("button");
-            button.setAttribute("onclick", "javascript: submit();");
-            var buttonText = document.createTextNode("submit");
-            button.appendChild(buttonText);
-            document.getElementById("practice-main-container").appendChild(button);
+            var label = document.createElement("label");
+            label.setAttribute("for", outputList[i]);
+            label.innerHTML = Object.values(questionSet[count])[i];
+            var appendId = "jsAdd" + outputList[i];
+            
+            document.getElementById(appendId).appendChild(input);
+            document.getElementById(appendId).appendChild(label);
+        }               
 
-        }
- 
+        //create button
+        var button = document.createElement("button");
+        button.setAttribute("onclick", "javascript: submit();");
+        button.setAttribute("id", "submitButton");
+        var buttonText = document.createTextNode("submit");
+        button.appendChild(buttonText);
+        document.getElementById("jsAddButton").appendChild(button);
 
     }
+ 
+
+    
     
     function submit() {
         if (document.getElementById("choiceA").checked) {
