@@ -181,14 +181,7 @@
                 <div class = "selection"><p>Quiz</p></div>
             </div>
             <div id = "practice-main-container">
-            <!--
-                <div class="mcText" id="question"></div>
-                <div class="mcText" id="choiceA"></div>
-                <div class="mcText" id="choiceB"></div>
-                <div class="mcText" id="choiceC"></div>
-                <div class="mcText" id="choiceD"></div>
-                <div class="mcText" id="answer"></div>
-            -->
+
            
                 <div class="mcText" id="jsAddquestion"> </div>
                 <form action="">
@@ -200,33 +193,7 @@
 
                 <button type="button" onclick="submit()">Submit</button>
            
-            <!--
-                <div class="mcText" id="jsAddquestion"> 
-                    
-                    <input type="radio" id="choiceA">
-                    <input type="radio" id="choiceB">
-                    <input type="radio" id="choiceC">
-                    <input type="radio" id="choiceD">
-                </div>
-            -->
-                <!--<div class="mcText" id="jsAddasnwer"> <input type="radio" id="answer"></div> -->
-            <!--
-                <div id = "ground">
-                    <form id = "meteor-form" onsubmit = "destroyMeteor()">
-                        <input id = "input-field" type = "text" placeholder = "Type time complexity here" autocomplete="off">
-                        <input class = "meteor-button" type = "submit">
-                    </form>
-                </div>
-                <div class = "selection-window-overlay"></div>
-                <div class = "selection-window-content">
-                    <h2 style = "font-family: 'Roboto', sans-serif; font-size: 30px;">Select Difficulty</h2>
-                    <div style = "height: 70px; width: 80%; display: flex; flex-direction: row; justify-content: center;">
-                        <button class = "difficulty-button" onclick = "startMeteors('easy')">Easy</button>
-                        <button class = "difficulty-button" onclick = "startMeteors('medium')">Medium</button>
-                        <button class = "difficulty-button" onclick = "startMeteors('hard')">Hard</button>
-                    </div>
-                </div>
-            -->
+          
             </div>
         </div>
     </body>
@@ -395,13 +362,7 @@ var baseurl = "https://codelingo.duckdns.org"
                     var choiceC = questionArray[3];
                     var choiceD = questionArray[4];
 
-                    //questionFormatted = questionOnly + "\n" + choiceA + "\n" + choiceB + "\n" + choiceC + "\n" + choiceD;                 
-                    //for (let i = 0; i < questionArray.length; i++) {
-                        //questionFormatted += questionArray[i] + "\n";
-
-                    //}
-                    //debugging
-                    //console.log("formatted question: " + questionFormatted);
+                  
 
                     //add backend's question to questionSet
 
@@ -419,32 +380,19 @@ var baseurl = "https://codelingo.duckdns.org"
             p.appendChild(questionText);
             document.getElementById("jsAddquestion").appendChild(p);
 
-            /*
-            var p = document.createElement("p");
-            var choiceAText = document.createTextNode(questionSet[0]["choiceA"]);
-            p.appendChild(choiceAText);
-            document.getElementById("choiceA").appendChild(p);
-            */
+           
 
             console.log("questionsetlength: " + Object.keys(questionSet[0]).length);
 
             var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
 
             for (let i = 1; i < Object.keys(questionSet[0]).length - 1; i++) {
-                //var input = document.createElement("input");
-                //input.setAttribute("type", "radio");
-               // input.setAttribute("id", outputList[i]);
+                
 
-
-                //var p = document.createElement("p");
                 var label = document.createElement("label");
                 label.setAttribute("for", outputList[i]);
                 label.innerHTML = Object.values(questionSet[0])[i];
-                //var text = document.createTextNode(Object.values(questionSet[0])[i]);
-                //label.appendChild(text);
-                //p.appendChild(text);
                 var appendId = "jsAdd" + outputList[i];
-                //document.getElementById("jsAddquestion").appendChild(input);
                 document.getElementById(appendId).appendChild(label);
 
 
