@@ -113,31 +113,30 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Introduction to HashMaps</h2>
+                    <h2>Introduction to ArrayLists</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>What is a HashMap?</h2>
-                    <h3 style = "margin-top: -20px;">A HashMap is an important data structure in Java that stores it elements in the form of "key/value" pairs.
-                        The elements saved within in it can be accessed with their respective keys.
+                    <h2>What is an ArrayList?</h2>
+                    <h3 style = "margin-top: -20px;">An ArrayList is a type of collection that has the properties of a resizable array. 
+                        This means that its size can be modified (add or remove elements), unlike normal arrays.
                     </h3>
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>An analogy</h2>
-                    <h3 style = "margin-top: -20px;">Basically, think of a HashMap as a locker room that contains several lockers, which represent the individual elements within it.
-                        In order to gain access to the content stored within a specific locker, you would need the lock password, or in other words, its key. 
+                    <h2>Basic Properties</h2>
+                    <h3 style = "margin-top: -20px;">Like many other data structures, ArrayLists following 0-based indexing, where they first element
+                        of the list is at the 0th index. It has the ability to contain duplicate elements, and it maintains the order in which elements are inserted.
                     </h3>
-                    <img src = "/assets/css/images/locker.png" height = "150px;">
+                    <img src = "https://code-knowledge.com/wp-content/uploads/2021/03/ArrayList-Java-Programming.svg" height = "150px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-4">
-                    <h2>Why HashMap?</h2>
-                    <h3 style = "margin-top: -20px;">HashMaps are useful in that they allow us to assign unique keys to data we want to store. This gives us the ability to create 
-                        features like search bars, where a certain result is returned based on the input of a search term or key.
+                    <h2>Why use ArrayList?</h2>
+                    <h3 style = "margin-top: -20px;">The resizing ability of ArrayLists is what makes it a dynamic array. It not only provides the same functionality
+                        as regular arrays, but also automatically shifts its size to accommodate for new elements and removed elements. This makes the process of storing and manipulating data a lot more convenient than you would in arrays.
                     </h3>
-                    <img src = "/assets/css/images/searchbar.gif" height = "175px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-5">
                     <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement HashMaps into your code.
+                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement ArrayLists into your code.
                     </h3>
                 </div>
                 <div class = "lesson-navigation">
@@ -205,6 +204,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                } else if (slideNumber == 5) {
+                    location.href = "/arraylist/lesson-2.html"
                 }
             }
 

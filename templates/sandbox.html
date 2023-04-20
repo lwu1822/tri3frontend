@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: whitesmoke;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 120px;
+            font-weight: lighter;
+        }
+
+        #sandbox-background-1 {
+            height: 1000px;
+            width: 100%;
+            background-color: #3aafa9;
+        }
+
+        .sandbox-main-container {
+            height: 750px;
+            width: 90%;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        #sandbox-section-1 {
+            height: 100%;
+            width: 25%;
+            background-color: white;
+            border-right: 2px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sandbox-section-2 {
+            height: 100%;
+            width: 42%;
+            background-color: #202020;
+            border-right: 2px solid black;
+            display: block;
+        }
+
+        #sandbox-section-3 {
+            height: 100%;
+            width: 33%;
+            background-color: white;
+        }
+
+    </style>
+    <body>
+        <div id = "sandbox-background-1">
+            <div id = "navbar-content"></div>
+            <div class = "sandbox-main-container">
+                <div id = "sandbox-section-1"></div>
+                <div id = "sandbox-section-2"></div>
+                <div id = "sandbox-section-3"></div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#navbar-content").load("/layouts/navbar.html");
+            });
+        </script>
+    </body>
+</html>
