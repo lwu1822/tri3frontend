@@ -192,7 +192,12 @@
                 <div class="mcText" id="jsAddchoiceD"> </div>
                 </form>
 
+                <br>
                 <div id="jsAddButton"></div>
+
+                <br>
+
+                <div id="msg"></div>
 
                 <!--
                 <form action="">
@@ -382,11 +387,23 @@ var baseurl = "https://codelingo.duckdns.org"
     }
 
     //count is used to determine which question to show
-    var count = 0; 
-    function changeQuestion() {
+    var count = -1; 
+    
+    //list with HTML elements ids
+    var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
 
-        //list with HTML elements ids
-        var outputList = ["question", "choiceA", "choiceB", "choiceC", "choiceD"];
+    //initialize score
+    var score = 0;
+    var click = false; 
+
+    function changeQuestion() {
+        count++;
+        if (count > questionSet.length - 1) {
+            showScore();
+            return;
+        }
+
+        click = false; 
 
         //clear the HTML elements so that new text can be added
         for (let i = 0; i < outputList.length; i++) {
@@ -394,6 +411,7 @@ var baseurl = "https://codelingo.duckdns.org"
             document.getElementById(clearId).innerHTML = "";
         }
         document.getElementById("jsAddButton").innerHTML = ""; 
+        document.getElementById("msg").innerHTML = ""; 
 
         
         //add question to html
@@ -432,20 +450,88 @@ var baseurl = "https://codelingo.duckdns.org"
 
     }
  
-
-    
-    
     function submit() {
-        if (document.getElementById("choiceA").checked) {
-            console.log("hi");
-            count++;
-            changeQuestion();
+        //clear the feedback message
+        document.getElementById("msg").innerHTML = ""; 
+        //clear the next button
+        document.getElementById("jsAddButton").innerHTML = ""; 
+
+        console.log("objectset:");
+        var answer = questionSet[count]["a"];
+        var idIndex = 0;
+
+        if (answer == "A") {
+            idIndex = 1;
+        } else if (answer == "B") {
+            idIndex = 2;
+        } else if (answer == "C") {
+            idIndex = 3;
+        } else {
+            idIndex = 4;
         }
+
+        
+        if (document.getElementById(outputList[idIndex]).checked) {
+            console.log("correct!");
+            if (!click) {
+                score++;
+            }
+            click = true;
+            msg(true);
+        } else {
+            console.log("incorrect!");
+            click = true;
+            msg(false);
+        }
+
     }
+
+    function msg(correct) {
+       //display message after submit button clicked
+        var p = document.createElement("p");
+        var outputMsg = "";
+        if (correct) {
+            outputMsg = document.createTextNode("Correct!");
+        } else {
+            outputMsg = document.createTextNode("Incorrect. The correct answer is: " + questionSet[count]["a"]);
+        }
+        p.appendChild(outputMsg);
+        document.getElementById("msg").appendChild(p);
+
+
+       //create next button
+        var button = document.createElement("button");
+        button.setAttribute("onclick", "javascript: changeQuestion();");
+        button.setAttribute("id", "nextButton");
+        var buttonText = document.createTextNode("Next");
+        button.appendChild(buttonText);
+        document.getElementById("jsAddButton").appendChild(button);
+    }
+
+    function showScore() {
+        //clear the HTML elements so that new text can be added
+        for (let i = 0; i < outputList.length; i++) {
+            var clearId = "jsAdd" + outputList[i];
+            document.getElementById(clearId).innerHTML = "";
+        }
+        document.getElementById("jsAddButton").innerHTML = ""; 
+        document.getElementById("msg").innerHTML = ""; 
+    
+
+        console.log(score);
+
+       //add score to html
+        var p = document.createElement("p");
+        var questionText = document.createTextNode("Number of questions answered correctly: " + score);
+        p.appendChild(questionText);
+        document.getElementById("jsAddquestion").appendChild(p);
+    }
+
+
+
     async function init() {
         await fetchQuestion();
         changeQuestion();
-        console.log("hi");
     }
 
     init();
