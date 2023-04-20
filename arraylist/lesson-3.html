@@ -113,30 +113,17 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Introduction to ArrayLists</h2>
+                    <h2>ArrayLists Hack</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>What is an ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">An ArrayList is a type of collection that has the properties of a resizable array. 
-                        This means that its size can be modified (add or remove elements), unlike normal arrays.
+                    <h2>ArrayList that Stores Objects</h2>
+                    <h3 style = "margin-top: -20px;">Write a program that sorts an ArrayList<Country> in decreasing order so that the largest country is at the beginning of the ArrayList. A comparator is recommended.
                     </h3>
+                    <img src = "/assets/css/images/hack-arraylist.png" height = "200px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>Basic Properties</h2>
-                    <h3 style = "margin-top: -20px;">Like many other data structures, ArrayLists following 0-based indexing, where they first element
-                        of the list is at the 0th index. It has the ability to contain duplicate elements, and it maintains the order in which elements are inserted.
-                    </h3>
-                    <img src = "https://code-knowledge.com/wp-content/uploads/2021/03/ArrayList-Java-Programming.svg" height = "150px;">
-                </div>
-                <div class = "lesson-slide" id = "slide-4">
-                    <h2>Why use ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">The resizing ability of ArrayLists is what makes it a dynamic array. It not only provides the same functionality
-                        as regular arrays, but also automatically shifts its size to accommodate for new elements and removed elements. This makes the process of storing and manipulating data a lot more convenient than you would in arrays.
-                    </h3>
-                </div>
-                <div class = "lesson-slide" id = "slide-5">
-                    <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement ArrayLists into your code.
+                    <h2>All Done with ArrayLists!</h2>
+                    <h3 style = "margin-top: -20px;">Try our practice tools to further test your knowledge on this subject.
                     </h3>
                 </div>
                 <div class = "lesson-navigation">
@@ -182,6 +169,10 @@
                         $("#slide-" + (slideNumber - 1)).css("display", "flex");
                         $("#slide-" + (slideNumber - 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                    if (slideIndex == 2) {
+                        $("#next-button").css("display", "block");
+                        $("#next-button").animate({opacity: 0.5}, {duration: 800, queue: true});
+                    }
                 }
             }
 
@@ -204,8 +195,11 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
-                    location.href = "/arraylist/lesson-2.html";
+                    if (slideIndex == 1) {
+                        $("#next-button").animate({opacity: 0}, {duration: 800, queue: true, complete: function() {
+                            $("#next-button").css("display", "none");
+                        }})
+                    }
                 }
             }
 

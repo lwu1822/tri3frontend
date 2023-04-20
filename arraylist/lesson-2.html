@@ -113,31 +113,34 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Introduction to ArrayLists</h2>
+                    <h2>ArrayList Implementation</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>What is an ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">An ArrayList is a type of collection that has the properties of a resizable array. 
-                        This means that its size can be modified (add or remove elements), unlike normal arrays.
+                    <h2>Import</h2>
+                    <h3 style = "margin-top: -20px;">ArrayList is included in the Java collection framework and is a part of the java.util package. It implements the List interface and inherits the properties of Collection library.
                     </h3>
+                    <img src = "/assets/css/images/import-arraylist.png" height = "150px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>Basic Properties</h2>
-                    <h3 style = "margin-top: -20px;">Like many other data structures, ArrayLists following 0-based indexing, where they first element
-                        of the list is at the 0th index. It has the ability to contain duplicate elements, and it maintains the order in which elements are inserted.
-                    </h3>
-                    <img src = "https://code-knowledge.com/wp-content/uploads/2021/03/ArrayList-Java-Programming.svg" height = "150px;">
+                    <h2>Instantiation</h2>
+                    <img src = "/assets/css/images/instantiate-arraylist.png" height = "150px;">
+                    <h3>Note that capacity is not the same thing as size. Capacity indicates the number of elements the ArrayList can initially store without re-organizing its internal structure</h3>
                 </div>
                 <div class = "lesson-slide" id = "slide-4">
-                    <h2>Why use ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">The resizing ability of ArrayLists is what makes it a dynamic array. It not only provides the same functionality
-                        as regular arrays, but also automatically shifts its size to accommodate for new elements and removed elements. This makes the process of storing and manipulating data a lot more convenient than you would in arrays.
-                    </h3>
+                    <h2>ArrayList methods</h2>
+                    <img src = "/assets/css/images/methods-arraylist.png" height = "225px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-5">
-                    <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement ArrayLists into your code.
-                    </h3>
+                    <h2>Looping through ArrayList</h2>
+                    <img src = "/assets/css/images/loop-arraylist.png" height = "250px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-6">
+                    <h2>Sorting an ArrayList</h2>
+                    <img src = "/assets/css/images/sort-arraylist.png" height = "250px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-7">
+                    <h2>Next Up</h2>
+                    <h3 style = "margin-left: -20px">Do the assigned hacks to apply your knowledge on ArrayLists</h3>
                 </div>
                 <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
@@ -194,7 +197,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 5) {
+                if (slideNumber < 7) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -204,8 +207,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
-                    location.href = "/arraylist/lesson-2.html";
+                } else if (slideNumber == 7) {
+                    location.href = "/arraylist/lesson-3.html";
                 }
             }
 
