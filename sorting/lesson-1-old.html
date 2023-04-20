@@ -88,15 +88,15 @@
         }
 
         .back-button:hover, .next-button:hover {
-            background-color: black;
+            background-color: rgb(175, 63, 63);
             color: white;
         }
 
         .next-button {
             height: 50px;
             width: 50px;
-            background-color: lightgray;
-            color: black;
+            background-color: rgb(170, 58, 58);
+            color: rgb(105, 14, 14);
             border-radius: 50%;
             cursor: pointer;
             transition-duration: 0.7s;
@@ -116,17 +116,24 @@
                     <h2>Sorting Types</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2> Heap Sort</h2>
-                    <h3 style = "margin-top: -20px;">This sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to the selection sort where we first find the minimum element and place the minimum element at the beginning. Repeat the same process for the remaining elements. This algorithm uses the function heapSort() to construct the max heap initially for use. Once done, every root element is extracted and sent to the end of the array. The root is again extracted and sent to the end of the array, repeating again. The sort also uses the function heapify() to determine the maximum from the element being examined as the root and its two children. If the maximum is among the children of the root, the root and its child are swapped. When the maximum element in the array is found the function stops.
-                    </h3>
-                
-                </div>
-                 <div class = "lesson-slide" id = "slide-4">
-                    <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn about insertion sort.
+                    <h2>Selection Sort Definition</h2>
+                    <h3 style = "margin-top: -20px;">
+                        Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
+                        The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
                     </h3>
                 </div>
-                <div class = "lesson-navigation">
+                <div class = "lesson-slide" id = "slide-3">
+                    <h2>Selection Sort Proccess</h2>
+                    <h3 style = "margin-top: -20px;">The algorithm repeatedly selects the min (or max) element from the unsorted part of the list and swaps it 
+                        with the first element of the unsorted part until the entire list is sorted. 
+                        The algorithm maintains two subarrays in a given array: the subarray which already sorted and the remaining subarray was unsorted. In every iteration of the selection sort, 
+                        the min element is picked and moved to the beginning of the sorted subarray. 
+                        After every iteration sorted subarray size increase by one and the unsorted subarray size decrease by one.
+                    </h3>
+                    <img src = "/assets/css/images/locker.png" height = "150px;">
+                </div>
+            </div>
+             <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
                     </div>
@@ -134,11 +141,10 @@
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
                     </div>
                 </div>
-            </div>
         </div>
         <script>
             $(function() {
-                $("#lesson-navbar").load("/layouts/sorting-lesson-navbar.html");
+                $("#lesson-navbar").load("/layouts/binary-search-lesson-navbar.html");
             })
 
             $("#back-button").click(previousSlide);
@@ -191,8 +197,6 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
-                    location.href = "/arraylist/lesson-2.html";
                 }
             }
 

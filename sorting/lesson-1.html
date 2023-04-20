@@ -117,8 +117,7 @@
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
                     <h2>Selection Sort Definition</h2>
-                    <h3 style = "margin-top: -20px;">
-                        Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
+                    <h3 style = "margin-top: -20px;">Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
                         The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
                     </h3>
                 </div>
@@ -132,11 +131,24 @@
                     </h3>
                     <img src = "/assets/css/images/locker.png" height = "150px;">
                 </div>
+                 <div class = "lesson-slide" id = "slide-4">
+                    <h2>So what are you waiting for?</h2>
+                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn about insertion sort.
+                    </h3>
+                </div>
+                <div class = "lesson-navigation">
+                    <div class = "back-button" id = "back-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
+                    </div>
+                    <div class = "next-button" id = "next-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
+                    </div>
+                </div>
             </div>
         </div>
         <script>
             $(function() {
-                $("#lesson-navbar").load("/layouts/binary-search-lesson-navbar.html");
+                $("#lesson-navbar").load("/layouts/sorting-lesson-navbar.html");
             })
 
             $("#back-button").click(previousSlide);
@@ -179,7 +191,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 5) {
+                if (slideNumber < 4) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -189,6 +201,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                } else if (slideNumber == 4) {
+                    location.href = "/sorting/lesson-2.html";
                 }
             }
 
