@@ -6,19 +6,60 @@
         <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
-   
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: whitesmoke;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 120px;
+            font-weight: lighter;
+        }
+
+        #login-background-1 {
+            height: 800px;
+            width: 100%;
+            background-image: linear-gradient(to right, royalblue, #3aafa9);
+        }
+
+        .login-container {
+            height: 600px;
+            width: 50%;
+            background-color: white;
+            border-radius: 50px;
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 100px;
+        }
+
+    </style>
     <body>
-    <form action="javascript:login()">
-    Email: <input type="email" id="email" required>
-    <br>
-    <br>
-    Password: <input type="password" id="password" required>
-    <br>
-    <br>
-    <div id="loginError"></div>
-    <button>Login</button>
-    <br>
-</form> 
+        <div id = "login-background-1">
+            <div class = "login-container">
+                <form action="javascript:login()">
+                    Email: <input type="email" id="email" required>
+                    <br>
+                    <br>
+                    Password: <input type="password" id="password" required>
+                    <br>
+                    <br>
+                    <div id="loginError"></div>
+                    <button>Login</button>
+                    <br>
+                </form> 
+            </div>
+        </div>
+    </body>
 <script>
     // URL for deployment
     var url = "https://codelingo.duckdns.org/"

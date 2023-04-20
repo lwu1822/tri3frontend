@@ -52,19 +52,14 @@
     </style>
     <body>
         <div class = "navbar-container">
-            <div class = "lesson-link"><p>1</p></div>
-            <div class = "lesson-link"><p>2</p></div>
-            <div class = "lesson-link"><p>3</p></div>
-            <div class = "lesson-link"><p>4</p></div>
-            <div class = "lesson-link"><p>5</p></div>
-            <div class = "lesson-link"><p>6</p></div>
-            <div class = "lesson-link"><p>7</p></div>
-            <div class = "lesson-link"><p>8</p></div>
+            <div class = "lesson-link" onclick = "location.href = '/arraylist/lesson-1.html'"><p>1</p></div>
+            <div class = "lesson-link" onclick = "location.href = '/arraylist/lesson-2.html'"><p>2</p></div>
+            <div class = "lesson-link" onclick = "location.href = '/arraylist/lesson-3.html'"><p>3</p></div>
+            <div class = "lesson-link" onclick = "location.href = '/templates/select-course.html'" style =  "width: 350px; border-radius: 20px; position: absolute; right: 50px;">Return to course selection</div>
         </div>
         <script>
-            var lessonName = window.location.pathname.substring(9);
+            var lessonName = window.location.pathname.substring(11);
             var lessonLinks = document.getElementsByClassName("lesson-link");
-            console.log(lessonName);
             switch (lessonName) {
                 case "lesson-1.html":
                     lessonLinks[0].style.backgroundColor = "white";
@@ -77,26 +72,6 @@
                 case "lesson-3.html":
                     lessonLinks[2].style.backgroundColor = "white";
                     lessonLinks[2].style.color = "black";
-                    break;
-                case "lesson-4.html":
-                    lessonLinks[3].style.backgroundColor = "white";
-                    lessonLinks[3].style.color = "black";
-                    break;
-                case "lesson-5.html":
-                    lessonLinks[4].style.backgroundColor = "white";
-                    lessonLinks[4].style.color = "black";
-                    break;
-                case "lesson-6.html":
-                    lessonLinks[5].style.backgroundColor = "white";
-                    lessonLinks[5].style.color = "black";
-                    break;
-                case "lesson-7.html":
-                    lessonLinks[6].style.backgroundColor = "white";
-                    lessonLinks[6].style.color = "black";
-                    break;
-                case "lesson-8.html":
-                    lessonLinks[7].style.backgroundColor = "white";
-                    lessonLinks[7].style.color = "black";
                     break;
             }
         </script>

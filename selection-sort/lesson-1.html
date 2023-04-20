@@ -113,45 +113,30 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Introduction to ArrayLists</h2>
+                    <h2>Sorting Types</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>What is an ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">An ArrayList is a type of collection that has the properties of a resizable array. 
-                        This means that its size can be modified (add or remove elements), unlike normal arrays.
+                    <h2>Selection Sort Definition</h2>
+                    <h3 style = "margin-top: -20px;">
+                        Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
+                        The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
                     </h3>
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>Basic Properties</h2>
-                    <h3 style = "margin-top: -20px;">Like many other data structures, ArrayLists following 0-based indexing, where they first element
-                        of the list is at the 0th index. It has the ability to contain duplicate elements, and it maintains the order in which elements are inserted.
+                    <h2>Selection Sort Proccess</h2>
+                    <h3 style = "margin-top: -20px;">The algorithm repeatedly selects the min (or max) element from the unsorted part of the list and swaps it 
+                        with the first element of the unsorted part until the entire list is sorted. 
+                        The algorithm maintains two subarrays in a given array: the subarray which already sorted and the remaining subarray was unsorted. In every iteration of the selection sort, 
+                        the min element is picked and moved to the beginning of the sorted subarray. 
+                        After every iteration sorted subarray size increase by one and the unsorted subarray size decrease by one.
                     </h3>
-                    <img src = "https://code-knowledge.com/wp-content/uploads/2021/03/ArrayList-Java-Programming.svg" height = "150px;">
-                </div>
-                <div class = "lesson-slide" id = "slide-4">
-                    <h2>Why use ArrayList?</h2>
-                    <h3 style = "margin-top: -20px;">The resizing ability of ArrayLists is what makes it a dynamic array. It not only provides the same functionality
-                        as regular arrays, but also automatically shifts its size to accommodate for new elements and removed elements. This makes the process of storing and manipulating data a lot more convenient than you would in arrays.
-                    </h3>
-                </div>
-                <div class = "lesson-slide" id = "slide-5">
-                    <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn how to implement ArrayLists into your code.
-                    </h3>
-                </div>
-                <div class = "lesson-navigation">
-                    <div class = "back-button" id = "back-button">
-                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
-                    </div>
-                    <div class = "next-button" id = "next-button">
-                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
-                    </div>
+                    <img src = "/assets/css/images/locker.png" height = "150px;">
                 </div>
             </div>
         </div>
         <script>
             $(function() {
-                $("#lesson-navbar").load("/layouts/arraylist-lesson-navbar.html");
+                $("#lesson-navbar").load("/layouts/binary-search-lesson-navbar.html");
             })
 
             $("#back-button").click(previousSlide);
@@ -204,8 +189,6 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
-                    location.href = "/arraylist/lesson-2.html";
                 }
             }
 
