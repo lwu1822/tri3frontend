@@ -24,8 +24,10 @@
         h3 {
             font-family: 'Quicksand', sans-serif;
             font-weight: lighter;
-            font-size: 25px;
+            font-size: 20px;
         }
+
+
 
         .lesson-background {
             height: 650px;
@@ -113,19 +115,44 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Sorting Types</h2>
+                    <h2>Heap Sort</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2> Heap Sort</h2>
-                    <h3 style = "margin-top: -20px;">This sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to the selection sort where we first find the minimum element and place the minimum element at the beginning. Repeat the same process for the remaining elements. This algorithm uses the function heapSort() to construct the max heap initially for use. Once done, every root element is extracted and sent to the end of the array. The root is again extracted and sent to the end of the array, repeating again. The sort also uses the function heapify() to determine the maximum from the element being examined as the root and its two children. If the maximum is among the children of the root, the root and its child are swapped. When the maximum element in the array is found the function stops.
+                    <h2> Tree</h2>  
+                    <h3 style = "margin-top: -20px;"> A tree is a data structure that is nonlinear and hierarchical. The benefit of a tree over other data structures like arrays and linked lists is that trees provide a quicker way to access data.
                     </h3>
                 
+                    <img src = "/assets/css/images/tree.jpg" height = "200px;">
                 </div>
-                 <div class = "lesson-slide" id = "slide-4">
-                    <h2>So what are you waiting for?</h2>
-                    <h3 style = "margin-top: -20px;">Jump into the next lesson and learn about insertion sort.
+                <div class = "lesson-slide" id = "slide-3">
+                    <h2>Heap</h2>  
+                    <h3 style = "margin-top: -20px;"> A heap data structure is a complete binary tree, or a tree where all nodes have either two or no children, except for the last leaf node, which does not need to have a sibling. All leaf nodes must also lean to the left.
+                    <h3 style = "margin-top: -20px;"> A heap data structure either has the max heap property or the min heap property. Trees where the parent node is greater than the child node have the max heap property. Trees where the parent node is smaller than the child node have the min heap property. 
                     </h3>
+                    <img src = "/assets/css/images/max-heap-min-heap.jpg" height = "200px;">
                 </div>
+                <div class = "lesson-slide" id = "slide-4">
+                    <h2>Heapify</h2>  
+                    <h3 style = "margin-top: -20px;"> To sort using heap sort, we want to first change a binary tree into a max-heap. This is called "heapify". To do this, we want to find the index of the last none-leaf node. This can be found with n/2-1, where n is the number of nodes. Next, find the node corresponding to the index, and compare the value of the node with its child nodes. If the parent node's value is smaller than the child node, swap their places. Then, move to the node with the index that is one less than the previous index (1), and repeat the process.
+
+                    </h3>
+                    <img src = "/assets/css/images/heapify-1.jpg" height = "200px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-5" >
+                    <h2 style="margin-top: -45px;">Heapify (cont.)</h2>  
+                    <img src = "/assets/css/images/heapify-2.jpg" height = "350px;" style="margin-top: -20px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-6">
+                    <h2> Heap Sort</h2>
+                    <h3 style = "margin-top: -25px;"> Once the tree is a max-heap, switch the root node with the last item of the heap. Remove the node. Then heapify the tree, and repeat the process until the array is sorted.
+
+                    </h3>
+                    <img src = "/assets/css/images/heap-sort-1.jpg" height = "320px;" style="margin-top: -20px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-7">
+                    <img src = "/assets/css/images/heap-sort-2.jpg" height = "400px;" style="margin-top: -20px;">
+                </div>
+                
                 <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
@@ -181,7 +208,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 5) {
+                if (slideNumber < 7) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -191,7 +218,7 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
+                } else if (slideNumber == 7) {
                     location.href = "/arraylist/lesson-2.html";
                 }
             }
