@@ -52,13 +52,13 @@
     </style>
     <body>
         <div class = "navbar-container">
-            <div class = "lesson-link" onclick = "location.href = '/sorting/lesson-1.html'"><p>1</p></div>
-            <div class = "lesson-link" onclick = "location.href = '/sorting/lesson-2.html'"><p>2</p></div>
-            <div class = "lesson-link" onclick = "location.href = '/sorting/lesson-3.html'"><p>3</p></div>
-            <div class = "lesson-link" onclick = "location.href = '/templates/select-course.html'" style =  "width: 350px; border-radius: 20px; position: absolute; right: 50px;">Return to course selection</div>
+            <div class = "lesson-link" onclick = "location.href = 'https://lwu1822.github.io/tri3frontend/sorts/lesson-1.html'"><p>1</p></div>
+            <div class = "lesson-link" onclick = "location.href = 'https://lwu1822.github.io/tri3frontend/sorts/lesson-2.html'"><p>2</p></div>
+            <div class = "lesson-link" onclick = "location.href = 'https://lwu1822.github.io/tri3frontend/sorts/lesson-3.html'"><p>3</p></div>
+            <div class = "lesson-link" onclick = "location.href = 'https://lwu1822.github.io/tri3frontend/templates/select-course.html'" style =  "width: 350px; border-radius: 20px; position: absolute; right: 50px;">Return to course selection</div>
         </div>
         <script>
-            var lessonName = window.location.pathname.substring(16);
+            var lessonName = window.location.pathname.substring(7);
             var lessonLinks = document.getElementsByClassName("lesson-link");
             switch (lessonName) {
                 case "lesson-1.html":
@@ -69,6 +69,9 @@
                     lessonLinks[1].style.backgroundColor = "white";
                     lessonLinks[1].style.color = "black";
                     break;
+                case "lesson-3.html":
+                    lessonLinks[2].style.backgroundColor = "white";
+                    lessonLinks[2].style.color = "black";
             }
         </script>
     </body>

@@ -143,10 +143,10 @@
                         Watch the call stack to understand which nested call you are currently in.                        
                     </h3>
                 </div>
-                <div class = "lesson-slide" id = "slide-5">
+                <div class = "lesson-slide" id = "slide-6">
                     <h2>Next Up</h2>
                     <h3 style = "margin-top: -20px;">
-                        Do the assigned hacks to apply your knowledge on Selection Sort                      
+                        Do the assigned hacks to apply your knowledge on recursions.                      
                     </h3>
                 </div>
                 <div class = "lesson-navigation">
@@ -161,7 +161,7 @@
         </div>
         <script>
             $(function() {
-                $("#lesson-navbar").load("/layouts/recursion-lesson-navbar.html");
+                $("#lesson-navbar").load("https://lwu1822.github.io/tri3frontend/layouts/recursion-lesson-navbar.html");
             })
 
             $("#back-button").click(previousSlide);
@@ -204,7 +204,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 5) {
+                if (slideNumber < 6) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -214,8 +214,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 5) {
-                    location.href = "/recursion/lesson-2.html";
+                } else if (slideNumber == 6) {
+                    location.href = "https://lwu1822.github.io/tri3frontend/recursion/lesson-2.html";
                 }
             }
 

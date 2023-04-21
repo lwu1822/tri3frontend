@@ -88,15 +88,15 @@
         }
 
         .back-button:hover, .next-button:hover {
-            background-color: rgb(175, 63, 63);
+            background-color: black;
             color: white;
         }
 
         .next-button {
             height: 50px;
             width: 50px;
-            background-color: rgb(170, 58, 58);
-            color: rgb(105, 14, 14);
+            background-color: lightgray;
+            color: black;
             border-radius: 50%;
             cursor: pointer;
             transition-duration: 0.7s;
@@ -113,27 +113,47 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Sorting Types</h2>
+                    <h2>Heap Sort</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>Selection Sort Definition</h2>
-                    <h3 style = "margin-top: -20px;">
-                        Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
-                        The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
+                    <h2>Tree Visualization</h2>  
+                    <h3 style = "margin-top: -20px;"> A tree is a data structure that is nonlinear and hierarchical. The benefit of a tree over other data structures like arrays and linked lists is that trees provide a quicker way to access data.
                     </h3>
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/tree.jpg" height = "200px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>Selection Sort Proccess</h2>
-                    <h3 style = "margin-top: -20px;">The algorithm repeatedly selects the min (or max) element from the unsorted part of the list and swaps it 
-                        with the first element of the unsorted part until the entire list is sorted. 
-                        The algorithm maintains two subarrays in a given array: the subarray which already sorted and the remaining subarray was unsorted. In every iteration of the selection sort, 
-                        the min element is picked and moved to the beginning of the sorted subarray. 
-                        After every iteration sorted subarray size increase by one and the unsorted subarray size decrease by one.
+                    <h2>Heap</h2>  
+                    <h3 style = "margin-top: -20px; font-size: 17px;"> A heap data structure is a complete binary tree, or a tree where all nodes have either two or no children, except for the last leaf node, which does not need to have a sibling. All leaf nodes must also lean to the left.
+ A heap data structure either has the max heap property or the min heap property. Trees where the parent node is greater than the child node have the max heap property. Trees where the parent node is smaller than the child node have the min heap property. 
                     </h3>
-                    <img src = "/assets/css/images/locker.png" height = "150px;">
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/max-heap-min-heap.jpg" height = "160px;">
                 </div>
-            </div>
-             <div class = "lesson-navigation">
+                <div class = "lesson-slide" id = "slide-4">
+                    <h2>Heapify</h2>  
+                    <h3 style = "margin-top: -20px; font-size: 17px;"> To sort using heap sort, we want to first change a binary tree into a max-heap. This is called "heapify". To do this, we want to find the index of the last none-leaf node. This can be found with n/2-1, where n is the number of nodes. Next, find the node corresponding to the index, and compare the value of the node with its child nodes. If the parent node's value is smaller than the child node, swap their places. Then, move to the node with the index that is one less than the previous index (1), and repeat the process.
+                    </h3>
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/heapify-1.jpg" height = "160px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-5" >
+                    <h2>Heapify (cont.)</h2>  
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/heapify-2.jpg" height = "300px;" style="margin-top: -20px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-6">
+                    <h2>Heap Sort</h2>
+                    <h3 style = "margin-top: -25px;"> Once the tree is a max-heap, switch the root node with the last item of the heap. Remove the node. Then heapify the tree, and repeat the process until the array is sorted.
+                    </h3>
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/heap-sort-1.jpg" height = "225px;" style="margin-top: -20px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-7">
+                    <h2>Heap Sort (Continued)</h2>
+                    <img src = "https://lwu1822.github.io/tri3frontend/assets/css/images/heap-sort-2.jpg" height = "250px;" style="margin-top: -20px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-8">
+                    <h2>All Done with Sorts!</h2>
+                    <h3 style = "margin-top: -20px;">Try our practice tools to further test your knowledge on this subject.
+                    </h3>
+                </div>
+                <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
                     </div>
@@ -141,10 +161,11 @@
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
                     </div>
                 </div>
+            </div>
         </div>
         <script>
-            $(function() {
-                $("#lesson-navbar").load("/layouts/binary-search-lesson-navbar.html");
+             $(function() {
+                $("#lesson-navbar").load("https://lwu1822.github.io/tri3frontend/layouts/sorts-lesson-navbar.html");
             })
 
             $("#back-button").click(previousSlide);
@@ -175,6 +196,10 @@
                         $("#slide-" + (slideNumber - 1)).css("display", "flex");
                         $("#slide-" + (slideNumber - 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                    if (slideIndex == 7) {
+                        $("#next-button").css("display", "block");
+                        $("#next-button").animate({opacity: 0.5}, {duration: 800, queue: true});
+                    }
                 }
             }
 
@@ -187,7 +212,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 5) {
+                if (slideNumber < 8) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -197,6 +222,11 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                    if (slideIndex == 6) {
+                        $("#next-button").animate({opacity: 0}, {duration: 800, queue: true, complete: function() {
+                            $("#next-button").css("display", "none");
+                        }})
+                    }
                 }
             }
 
