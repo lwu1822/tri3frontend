@@ -113,36 +113,18 @@
         <div class = "lesson-background">
             <div class = "lesson-container">
                 <div class = "lesson-slide" id = "slide-1" style = "display: flex; opacity: 1;">
-                    <h2>Selection Sort</h2>
+                    <h2>Selection Sort Hack</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>Selection Sort Definition</h2>
-                    <h3 style = "margin-top: -20px;">
-                        Selection Sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. 
-                        The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
+                    <h2>ArrayList that Stores Objects</h2>
+                    <h3 style = "margin-top: -20px;">Write a program that sorts an ArrayList<Country> in decreasing order so that the largest country is at the beginning of the ArrayList. A comparator is recommended.
                     </h3>
+                    <img src = "/assets/css/images/hack-arraylist.png" height = "200px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-3">
-                    <h2>Selection Sort Process Part 1</h2>
-                    <h3 style = "margin-top: -20px;">The algorithm repeatedly selects the min (or max) element from the unsorted part of the list and swaps it 
-                        with the first element of the unsorted part until the entire list is sorted. 
+                    <h2>All Done with Selection Sort!</h2>
+                    <h3 style = "margin-top: -20px;">Try our practice tools to further test your knowledge on this subject.
                     </h3>
-                    <img src = "https://www.programiz.com/sites/tutorial2program/files/Selection-sort-0-comparision.png" height = "150px;">
-                </div>
-                <div class = "lesson-slide" id = "slide-4">
-                    <h2>Selection Sort Process Part 2</h2>
-                    <h3 style = "margin-top: -20px;">The algorithm maintains two subarrays in a given array: the subarray which already sorted and the remaining subarray was unsorted. In every iteration of the selection sort, 
-                        the min element is picked and moved to the beginning of the sorted subarray. 
-                        After every iteration sorted subarray size increase by one and the unsorted subarray size decrease by one.
-                    </h3>
-                </div>
-                <div class = "lesson-slide" id = "slide-5">
-                    <h2>Example Code</h2>
-                    <img src = "/assets/css/images/example-selectionsort.png" height = "250px">
-                </div>
-                <div class = "lesson-slide" id = "slide-6">
-                    <h2>Next Up</h2>
-                    <h3 style = "margin-left: -20px">Do the assigned hacks to apply your knowledge on Selection Sort</h3>
                 </div>
                 <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
@@ -187,6 +169,10 @@
                         $("#slide-" + (slideNumber - 1)).css("display", "flex");
                         $("#slide-" + (slideNumber - 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                    if (slideIndex == 2) {
+                        $("#next-button").css("display", "block");
+                        $("#next-button").animate({opacity: 0.5}, {duration: 800, queue: true});
+                    }
                 }
             }
 
@@ -199,7 +185,7 @@
                     }
                 }
                 var slideNumber = parseInt($(this).parent().parent().children(".lesson-slide").eq(slideIndex).attr("id").substring(6));
-                if (slideNumber < 6) {
+                if (slideNumber < 5) {
                     if (slideIndex == 0) {
                         $("#back-button").css("display", "block");
                         $("#back-button").animate({opacity: 0.5}, {duration: 700, queue: false});
@@ -209,8 +195,11 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                } else if (slideNumber == 6) {
-                    location.href = "/selection-sort/lesson-2.html";
+                    if (slideIndex == 1) {
+                        $("#next-button").animate({opacity: 0}, {duration: 800, queue: true, complete: function() {
+                            $("#next-button").css("display", "none");
+                        }})
+                    }
                 }
             }
 

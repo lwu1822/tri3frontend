@@ -130,7 +130,6 @@
                         Infinite recursion is when the function never stops calling itself. Every recursive function should have a halting condition, 
                         which is the condition where the function stops calling itself.                         
                     </h3>
-                    <img src = "/assets/css/images/locker.png" height = "150px;">
                 </div>
                 <div class = "lesson-slide" id = "slide-4">
                     <h2>Tracing through Recursive Methods?</h2>
@@ -138,7 +137,20 @@
                         When you set a breakpoint in a recursive method, that project line is encountered in any call to the recursive method.
                         Watch the call stack to understand which nested call you are currently in.                        
                     </h3>
-                    <img src = "/assets/css/images/searchbar.gif" height = "175px;">
+                </div>
+                <div class = "lesson-slide" id = "slide-5">
+                    <h2>Next Up</h2>
+                    <h3 style = "margin-top: -20px;">
+                        Do the assigned hacks to apply your knowledge on Selection Sort                      
+                    </h3>
+                </div>
+                <div class = "lesson-navigation">
+                    <div class = "back-button" id = "back-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
+                    </div>
+                    <div class = "next-button" id = "next-button">
+                        <p style = "font-size: 60px; position: absolute; top: -75px; left: 15.5px;">&#8250;</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,6 +209,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
+                } else if (slideNumber == 5) {
+                    location.href = "/recursion/lesson-2.html";
                 }
             }
 
