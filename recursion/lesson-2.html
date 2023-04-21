@@ -116,14 +116,39 @@
                     <h2>Recursion Hack</h2>
                 </div>
                 <div class = "lesson-slide" id = "slide-2">
-                    <h2>Fix this code</h2>
-                    <img src = "/assets/css/images/hack-recursion.png" height = "225px;">
+                    <h2>Fix this code: </h2>
+                    <h3 style = "margin-top: -20px;"> 
+public void Pyramid(int n)
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+{
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+ for (int i = 1; i <= n; i++) {
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+      System.out.print("*");
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+      System.out.println();
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+      Pyramid(n - 1);
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+ }
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+}
+</h3>
+                    <h3 style = "margin-top: -20px;"> 
+Pyramid(10);
+</h3>
+
+
+
                 </div>
-                <div class = "lesson-slide" id = "slide-3">
-                    <h2>All Done with Recursion!</h2>
-                    <h3 style = "margin-top: -20px;">Try our practice tools to further test your knowledge on this subject.
-                    </h3>
-                </div>
+
                 <div class = "lesson-navigation">
                     <div class = "back-button" id = "back-button">
                         <p style = "font-size: 60px; position: absolute; top: -75px; left: 13.5px">&#8249;</p>
@@ -167,10 +192,6 @@
                         $("#slide-" + (slideNumber - 1)).css("display", "flex");
                         $("#slide-" + (slideNumber - 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                    if (slideIndex == 2) {
-                        $("#next-button").css("display", "block");
-                        $("#next-button").animate({opacity: 0.5}, {duration: 800, queue: true});
-                    }
                 }
             }
 
@@ -193,11 +214,8 @@
                         $("#slide-" + (slideNumber + 1)).css("display", "flex");
                         $("#slide-" + (slideNumber + 1)).animate({opacity: 1}, {duration: 700, queue: true});
                     }});
-                    if (slideIndex == 1) {
-                        $("#next-button").animate({opacity: 0}, {duration: 800, queue: true, complete: function() {
-                            $("#next-button").css("display", "none");
-                        }})
-                    }
+                } else if (slideNumber == 5) {
+                    location.href = "/recursion/lesson-2.html";
                 }
             }
 
